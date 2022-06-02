@@ -4,80 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/FIW_FDS.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/docker/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/Exam02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/Start.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/client/Link.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/AbstractStart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/AbstractApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/caching/CachingUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/caching/EtagGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/converter/JsonServerLinkConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/converter/ServerLink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/converter/XmlServerLinkConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/hyperlinks/Hyperlinks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractRelationQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/OnePageWithAllResults.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehavior.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingOffsetSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/security/AbstractAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/security/BasicAuthHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/security/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/services/AbstractService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/AbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteRelationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionRelationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetDispatcherState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetRelationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostRelationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutRelationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/DatabaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/IDatabaseAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/IDatabaseRelationAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/inmemory/AbstractInMemoryRelationStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/inmemory/AbstractInMemoryStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/results/AbstractResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/results/CollectionModelResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/results/NoContentResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/results/SingleModelResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/AbstractModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/EmptyModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/JsonDateTimeConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/UriHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/XmlDateTimeConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/LinkTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/server/SuttonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/server/api/states/AbstractStateTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/server/api/states/DemoStateReturns200Ok.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/server/api/states/DemoStateThrowsIllegalArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/server/api/states/DemoStateThrowsWebException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/DispatcherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/LocationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/PersonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/DispatcherState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/DeleteSingleLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetAllLocations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetSingleLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationRelTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationUri.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PostNewLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PutSingleLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/DeleteSingleLocationOfPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetAllLocationsOfPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetSingleLocationOfPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationRelTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationUri.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PostNewLocationOfPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PutSingleLocationOfPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/DeleteSinglePerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetAllPersons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetSinglePerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonRelTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonUri.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PostNewPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PutSinglePerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/inmemory/StudyTripStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/StudyTrip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,20 +65,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Luca/IdeaProjects/fdsexam02studentk50806&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.excludes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/fdsexam02studentk50806/src/main/java/de/fhws/fiw/fds/exam02",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\exam02" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam01studentk50806\.idea" />
     </key>
@@ -149,7 +118,16 @@
       <workItem from="1654109401673" duration="111000" />
       <workItem from="1654109525179" duration="585000" />
       <workItem from="1654112183790" duration="547000" />
+      <workItem from="1654160200545" duration="9467000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1654160241530</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654160241530</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,5 +143,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
