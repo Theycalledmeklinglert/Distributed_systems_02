@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="war" name="examtemplate2:war">
-    <output-path>$PROJECT_DIR$/.idea/target</output-path>
+    <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
         <module>examtemplate2</module>

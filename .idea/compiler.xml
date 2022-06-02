@@ -11,6 +11,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="examtemplate2" target="1.8" />
+      <module name="examtemplate2 (1)" target="1.8" />
+      <module name="examtemplate2 (2)" target="1.8" />
       <module name="fdsexam01studentk50806" target="18" />
     </bytecodeTargetLevel>
   </component>

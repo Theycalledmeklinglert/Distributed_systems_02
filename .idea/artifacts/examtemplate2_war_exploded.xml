@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="examtemplate2:war exploded">
-    <output-path>$PROJECT_DIR$/.idea/target/examtemplate2-0.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/examtemplate2-0.0.1-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -49,14 +49,10 @@
           <element id="library" level="project" name="Maven: org.glassfish.jersey.ext:jersey-declarative-linking:2.25.1" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.media:jersey-media-multipart:2.25.1" />
           <element id="library" level="project" name="Maven: org.jvnet.mimepull:mimepull:1.9.6" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.27" />
-          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
-          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:2.3.3" />
-          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:1.2.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/.idea/target/examtemplate2-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/examtemplate2-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="examtemplate2/web/Web" />
     </root>
