@@ -16,22 +16,27 @@
 
 package de.fhws.fiw.fds.exam02.states.persons;
 
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.AbstractState;
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.post.AbstractPostState;
-import de.fhws.pvs.unit10.slides.sutton.server.database.results.NoContentResult;
-import de.fhws.pvs.unit10.slides.suttondemo.database.DaoFactory;
-import de.fhws.pvs.unit10.slides.suttondemo.models.Person;
+import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
+import de.fhws.fiw.fds.sutton.server.api.states.post.AbstractPostState;
+import de.fhws.fiw.fds.sutton.server.database.DaoFactory;
+import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
+import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 
-public class PostNewPerson extends AbstractPostState<Person>
+
+public class PostNewStudyTrip extends AbstractPostState<StudyTrip>
 {
-	public PostNewPerson( final Builder builder )
+	public PostNewStudyTrip(final Builder builder )
 	{
 		super( builder );
 	}
 
+	@Override
+	protected void authorizeRequest() {
+	}
+
 	@Override protected NoContentResult saveModel( )
 	{
-		return DaoFactory.getInstance( ).getPersonDao( ).create( this.modelToStore );
+		return DaoFactory.getInstance( ).getStudyTripDao( ).create( this.modelToStore );
 	}
 
 	@Override protected void defineTransitionLinks( )
@@ -39,11 +44,11 @@ public class PostNewPerson extends AbstractPostState<Person>
 
 	}
 
-	public static class Builder extends AbstractPostStateBuilder<Person>
+	public static class Builder extends AbstractPostStateBuilder<StudyTrip>
 	{
 		@Override public AbstractState build( )
 		{
-			return new PostNewPerson( this );
+			return new PostNewStudyTrip( this );
 		}
 	}
 }

@@ -16,40 +16,45 @@
 
 package de.fhws.fiw.fds.exam02.states.persons;
 
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.AbstractState;
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.delete.AbstractDeleteState;
-import de.fhws.pvs.unit10.slides.sutton.server.database.results.NoContentResult;
-import de.fhws.pvs.unit10.slides.sutton.server.database.results.SingleModelResult;
-import de.fhws.pvs.unit10.slides.suttondemo.database.DaoFactory;
-import de.fhws.pvs.unit10.slides.suttondemo.models.Person;
+import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
+import de.fhws.fiw.fds.sutton.server.api.states.delete.AbstractDeleteState;
+import de.fhws.fiw.fds.sutton.server.database.DaoFactory;
+import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
+import de.fhws.fiw.fds.sutton.server.database.results.SingleModelResult;
+import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 
-public class DeleteSinglePerson extends AbstractDeleteState<Person>
+
+public class DeleteSingleStudyTrip extends AbstractDeleteState<StudyTrip>
 {
-	public DeleteSinglePerson( final Builder builder )
+	public DeleteSingleStudyTrip(final Builder builder )
 	{
 		super( builder );
 	}
 
-	@Override protected SingleModelResult<Person> loadModel( )
+	@Override
+	protected void authorizeRequest() {
+	}
+
+	@Override protected SingleModelResult<StudyTrip> loadModel( )
 	{
-		return DaoFactory.getInstance( ).getPersonDao( ).readById( this.modelIdToDelete );
+		return DaoFactory.getInstance( ).getStudyTripDao( ).readById( this.modelIdToDelete );
 	}
 
 	@Override protected NoContentResult deleteModel( )
 	{
-		return DaoFactory.getInstance( ).getPersonDao( ).delete( this.modelIdToDelete );
+		return DaoFactory.getInstance( ).getStudyTripDao( ).delete( this.modelIdToDelete );
 	}
 
 	@Override protected void defineTransitionLinks( )
 	{
-		addLink( PersonUri.REL_PATH, PersonRelTypes.GET_ALL_PERSONS, getAcceptRequestHeader( ) );
+		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.GET_ALL_STUDYTRIPS, getAcceptRequestHeader( ) );
 	}
 
 	public static class Builder extends AbstractDeleteStateBuilder
 	{
 		@Override public AbstractState build( )
 		{
-			return new DeleteSinglePerson( this );
+			return new DeleteSingleStudyTrip( this );
 		}
 	}
 }

@@ -16,9 +16,11 @@
 
 package de.fhws.fiw.fds.exam02.services;
 
-import de.fhws.fiw.fds.exam02.states.persons.GetAllPersons;
-import de.fhws.fiw.fds.exam02.states.persons.GetSinglePerson;
+import de.fhws.fiw.fds.exam02.states.person_locations.*;
+import de.fhws.fiw.fds.exam02.states.persons.*;
 import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
+import de.fhws.fiw.fds.sutton.server.models.Student;
+import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 
 
 import javax.ws.rs.*;
@@ -26,17 +28,20 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path( "studyTrips" )
-public class PersonService extends AbstractService
+public class StudyTripService extends AbstractService
 {
 	@GET
 	@Produces( {MediaType.APPLICATION_JSON} )
 	public Response getAllStudyTrips(
-		@DefaultValue( "" ) @QueryParam( "firstname" ) final String firstName,
-		@DefaultValue( "" ) @QueryParam( "lastname" ) final String lastName
-	)
+		@DefaultValue( "" ) @QueryParam( "name" ) final String name,
+		@DefaultValue( "" ) @QueryParam( "startDate" ) final String startDate,
+		@DefaultValue( "" ) @QueryParam( "endDate" ) final String endDate,
+		@DefaultValue( "" ) @QueryParam( "city" ) final String city,
+		@DefaultValue( "" ) @QueryParam( "country" ) final String countrty
+		)
 	{
-		return new GetAllPersons.Builder( )
-			.setQuery( new GetAllPersons.ByFirstAndLastName( firstName, lastName ) )
+		return new GetAllStudyTrips.Builder( )
+			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, countrty ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -48,9 +53,9 @@ public class PersonService extends AbstractService
 	@GET
 	@Path( "{id: \\d+}" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getSinglePerson( @PathParam( "id" ) final long id )
+	public Response getSingleStudyTrip( @PathParam( "id" ) final long id )
 	{
-		return new GetSinglePerson.Builder( )
+		return new GetSingleStudyTrip.Builder( )
 			.setRequestedId( id )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
@@ -62,10 +67,10 @@ public class PersonService extends AbstractService
 
 	@POST
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response createSinglePerson( final Person personModel )
+	public Response createSingleStudyTrip(final StudyTrip studyTripModel )
 	{
-		return new PostNewPerson.Builder( )
-			.setModelToCreate( personModel )
+		return new PostNewStudyTrip.Builder( )
+			.setModelToCreate( studyTripModel )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -77,11 +82,11 @@ public class PersonService extends AbstractService
 	@PUT
 	@Path( "{id: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response updateSinglePerson( @PathParam( "id" ) final long id, final Person personModel )
+	public Response updateSingleStudyTrip (@PathParam( "id" ) final long id, final StudyTrip studyTripModel )
 	{
-		return new PutSinglePerson.Builder( )
+		return new PutSingleStudyTrip.Builder( )
 			.setRequestedId( id )
-			.setModelToUpdate( personModel )
+			.setModelToUpdate( studyTripModel )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -93,9 +98,9 @@ public class PersonService extends AbstractService
 	@DELETE
 	@Path( "{id: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response deleteSinglePerson( @PathParam( "id" ) final long id )
+	public Response deleteSingleStudyTrip(@PathParam( "id" ) final long id )
 	{
-		return new DeleteSinglePerson.Builder( )
+		return new DeleteSingleStudyTrip.Builder( )
 			.setRequestedId( id )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
@@ -106,15 +111,16 @@ public class PersonService extends AbstractService
 	}
 
 	@GET
-	@Path( "{personId: \\d+}/locations" )
+	@Path( "{studyTripId: \\d+}/students" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getLocationsOfPerson( @PathParam( "personId" ) final long personId,
-		@DefaultValue( "" ) @QueryParam( "cityname" ) final String cityName,
-		@DefaultValue( "false" ) @QueryParam( "showAll" ) final boolean showAll )
+	public Response getStudentsOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
+										   @DefaultValue( "" ) @QueryParam( "firstName" ) final String firstName,
+										   @DefaultValue( "" ) @QueryParam( "lastName" ) final String lastName,
+										   @DefaultValue( "false" ) @QueryParam( "showAll" ) final boolean showAll )
 	{
-		return new GetAllLocationsOfPerson.Builder( )
-			.setParentId( personId )
-			.setQuery( new GetAllLocationsOfPerson.FilterLocationsByName( personId, showAll, cityName ) )
+		return new GetAllStudentsOfStudyTrip.Builder( )
+			.setParentId( studyTripId )
+			.setQuery( new GetAllStudentsOfStudyTrip.FilterStudentsByName( studyTripId, showAll, firstName, lastName ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -124,14 +130,14 @@ public class PersonService extends AbstractService
 	}
 
 	@GET
-	@Path( "{personId: \\d+}/locations/{locationId: \\d+}" )
+	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getLocationByIdOfPerson( @PathParam( "personId" ) final long personId,
-		@PathParam( "locationId" ) final long locationId )
+	public Response getLocationByIdOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
+		@PathParam( "studentId" ) final long studentId )
 	{
-		return new GetSingleLocationOfPerson.Builder( )
-			.setParentId( personId )
-			.setRequestedId( locationId )
+		return new GetSingleStudentOfStudyTrip.Builder( )
+			.setParentId( studyTripId )
+			.setRequestedId( studentId )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -141,13 +147,13 @@ public class PersonService extends AbstractService
 	}
 
 	@POST
-	@Path( "{personId: \\d+}/locations" )
+	@Path( "{studyTripId: \\d+}/students" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response createNewLocationOfPerson( @PathParam( "personId" ) final long personId, final Location location )
+	public Response createNewStudentOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId, final Student student )
 	{
-		return new PostNewLocationOfPerson.Builder( )
-			.setParentId( personId )
-			.setModelToCreate( location )
+		return new PostNewStudentOfStudyTrip.Builder( )
+			.setParentId( studyTripId )
+			.setModelToCreate( student )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -157,15 +163,15 @@ public class PersonService extends AbstractService
 	}
 
 	@PUT
-	@Path( "{personId: \\d+}/locations/{locationId: \\d+}" )
+	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response updateNewLocationOfPerson( @PathParam( "personId" ) final long personId,
-		@PathParam( "locationId" ) final long locationId, final Location location )
+	public Response updateNewLocationOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
+		@PathParam( "studentId" ) final long studentId, final Student student )
 	{
-		return new PutSingleLocationOfPerson.Builder( )
-			.setParentId( personId )
-			.setRequestedId( locationId )
-			.setModelToUpdate( location )
+		return new PutSingleStudentOfStudyTrip.Builder( )
+			.setParentId( studyTripId )
+			.setRequestedId( studentId )
+			.setModelToUpdate( student )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -175,13 +181,13 @@ public class PersonService extends AbstractService
 	}
 
 	@DELETE
-	@Path( "{personId: \\d+}/locations/{locationId: \\d+}" )
-	public Response deleteLocationOfPerson( @PathParam( "personId" ) final long personId,
-		@PathParam( "locationId" ) final long locationId )
+	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
+	public Response deleteLocationOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
+		@PathParam( "studentId" ) final long studentId )
 	{
-		return new DeleteSingleLocationOfPerson.Builder( )
-			.setParentId( personId )
-			.setRequestedId( locationId )
+		return new DeleteSingleStudentOfStudyTrip.Builder( )
+			.setParentId( studyTripId )
+			.setRequestedId( studentId )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )

@@ -4,36 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/DispatcherService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/LocationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/PersonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/DispatcherState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/DeleteSingleLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetAllLocations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetSingleLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationRelTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationUri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PostNewLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PutSingleLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/DeleteSingleLocationOfPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetAllLocationsOfPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetSingleLocationOfPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationRelTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationUri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PostNewLocationOfPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PutSingleLocationOfPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/DeleteSinglePerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetAllPersons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetSinglePerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonRelTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonUri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PostNewPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PutSinglePerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/inmemory/StudyTripStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/models/StudyTrip.java" afterDir="false" />
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="First implementation of InMemoryDatabase">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/DeleteSingleStudentOfStudyTrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetAllStudentsOfStudyTrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetSingleStudentOfStudyTrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PostNewStudentOfStudyTrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PutSingleStudentOfStudyTrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/StudyTripStudentRelTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetAllStudyTrips.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/DaoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudentInMemoryStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudyTripDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudyTripInMemoryStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudyTripStudentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/database/StudyTripToStudentRelationStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/services/StudyTripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/DispatcherState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/DispatcherState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/DeleteSingleLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/DeleteSingleStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetAllLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetAllStudents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetSingleLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/GetSingleStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/StudentRelTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/LocationUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/StudentUri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PostNewLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PostNewStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PutSingleLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/locations/PutSingleStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/DeleteSingleLocationOfPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetAllLocationsOfPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/GetSingleLocationOfPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationRelTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PersonLocationUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/StudyTripStudentUri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PostNewLocationOfPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/person_locations/PutSingleLocationOfPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/DeleteSinglePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/DeleteSingleStudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetAllPersons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetSinglePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/GetSingleStudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/StudyTripRelTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PersonUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/StudyTripUri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PostNewPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PostNewStudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PutSinglePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/states/persons/PutSingleStudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/XmlDateTimeConverter.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +80,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/fdsexam02studentk50806/src/main/java/de/fhws/fiw/fds/exam02",
+    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/unit-10-associations-between-resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -79,6 +89,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\sutton\server\database" />
+      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\sutton\server" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\exam02" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam01studentk50806\.idea" />
@@ -118,7 +130,8 @@
       <workItem from="1654109401673" duration="111000" />
       <workItem from="1654109525179" duration="585000" />
       <workItem from="1654112183790" duration="547000" />
-      <workItem from="1654160200545" duration="9467000" />
+      <workItem from="1654160200545" duration="15320000" />
+      <workItem from="1654270468641" duration="4688000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1654160241530</created>
@@ -127,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654160241530</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First implementation of InMemoryDatabase">
+      <created>1654181131875</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654181131875</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +166,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="First implementation of InMemoryDatabase" />
+    <option name="LAST_COMMIT_MESSAGE" value="First implementation of InMemoryDatabase" />
   </component>
 </project>

@@ -14,13 +14,30 @@
  * limitations under the License.
  */
 
-package de.fhws.fiw.fds.exam02.states.persons;
+package de.fhws.fiw.fds.sutton.server.database;
 
-import de.fhws.pvs.unit10.slides.suttondemo.Start;
 
-public interface PersonUri
+import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
+import de.fhws.fiw.fds.sutton.server.database.inmemory.AbstractInMemoryStorage;
+
+
+import java.time.LocalDate;
+
+public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip> implements StudyTripDao
 {
-	String PATH_ELEMENT = "persons";
-	String REL_PATH = Start.CONTEXT_PATH + "/api/" + PATH_ELEMENT;
-	String REL_PATH_ID = REL_PATH + "/{id}";
+	public StudyTripInMemoryStorage( )
+	{
+		super( );
+	//	populateData( );
+	}
+
+	/* private void populateData( )
+	{
+		create( new Person(
+			"Felix", "Leiter",
+			"felix.leiter@cia.com",
+			LocalDate.of( 1960, 2, 9 ) ) );
+	}
+
+	 */
 }

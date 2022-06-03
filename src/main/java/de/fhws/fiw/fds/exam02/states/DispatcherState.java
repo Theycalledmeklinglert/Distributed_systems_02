@@ -16,10 +16,7 @@
 
 package de.fhws.fiw.fds.exam02.states;
 
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.AbstractState;
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.get.AbstractGetDispatcherState;
-import de.fhws.pvs.unit10.slides.suttondemo.api.states.persons.PersonRelTypes;
-import de.fhws.pvs.unit10.slides.suttondemo.api.states.persons.PersonUri;
+import de.fhws.fiw.fds.sutton.server.api.states.get.AbstractGetDispatcherState;
 
 import javax.ws.rs.core.MediaType;
 

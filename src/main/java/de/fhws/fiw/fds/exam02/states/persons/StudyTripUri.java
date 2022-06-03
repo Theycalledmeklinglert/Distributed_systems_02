@@ -16,11 +16,12 @@
 
 package de.fhws.fiw.fds.exam02.states.persons;
 
-public interface PersonRelTypes
+
+import de.fhws.fiw.fds.exam02.Start;
+
+public interface StudyTripUri
 {
-	String CREATE_PERSON = "createPerson";
-	String GET_ALL_PERSONS = "getAllPersons";
-	String UPDATE_SINGLE_PERSON = "updatePerson";
-	String DELETE_SINGLE_PERSON = "deletePerson";
-	String GET_SINGLE_PERSON = "getPerson";
+	String PATH_ELEMENT = "studyTrips";
+	String REL_PATH = Start.CONTEXT_PATH + "/api/" + PATH_ELEMENT;
+	String REL_PATH_ID = REL_PATH + "/{id}";
 }
