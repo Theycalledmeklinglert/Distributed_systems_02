@@ -40,7 +40,7 @@ public class DaoFactory
 	{
 		this.studyTripDao = new StudyTripInMemoryStorage( );
 		this.studentDao = new StudentInMemoryStorage( );
-		this.studyTripStudentDao = new StudyTripToStudentRelationStorage( );
+		this.studyTripStudentDao = new StudyTripToStudentsRelationStorage( );
 	}
 
 	public StudyTripDao getStudyTripDao( )

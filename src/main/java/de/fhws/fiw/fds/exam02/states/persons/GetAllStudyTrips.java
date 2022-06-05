@@ -27,7 +27,6 @@ import org.apache.commons.lang.StringUtils;
 
 import javax.ws.rs.core.GenericEntity;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.function.Predicate;
 
@@ -62,13 +61,13 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 		}
 	}
 
-	public static class ByNameAndStartAndEndDateAndCityAndCountry extends AbstractQuery<StudyTrip>	// bruh
+	public static class ByNameAndStartAndEndDateAndCityAndCountry extends AbstractQuery<StudyTrip>
 	{
 		protected String name;
 
-		protected LocalDateTime startDate;
+		protected LocalDate startDate;
 
-		protected LocalDateTime endDate;
+		protected LocalDate endDate;
 
 		protected String city;
 
@@ -76,8 +75,8 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 
 		public ByNameAndStartAndEndDateAndCityAndCountry(String name, String startDate, String endDate, String city, String country) {
 			this.name = name;
-			this.startDate = LocalDateTime.from(LocalDate.parse(startDate));
-			this.endDate = LocalDateTime.from(LocalDate.parse(endDate));
+			if(!StringUtils.isEmpty(startDate)) this.startDate = LocalDate.parse(startDate);
+			if(!StringUtils.isEmpty(endDate)) this.endDate =LocalDate.parse(endDate);
 			this.city = city;
 			this.country = country;
 		}

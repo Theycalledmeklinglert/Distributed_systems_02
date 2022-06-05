@@ -3,6 +3,7 @@ package de.fhws.fiw.fds.sutton.server.models;
 import de.fhws.fiw.fds.sutton.client.Link;
 import org.glassfish.jersey.linking.InjectLink;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,8 +11,8 @@ import java.util.Set;
 public class StudyTrip extends AbstractModel {
     long id;
     String name;
-    LocalDateTime firstDate;
-    LocalDateTime lastDate;
+    LocalDate firstDate;
+    LocalDate lastDate;
     String partnerUni;
     String city;
     String country;
@@ -34,19 +35,19 @@ public class StudyTrip extends AbstractModel {
         this.name = name;
     }
 
-    public LocalDateTime getFirstDate() {
+    public LocalDate getFirstDate() {
         return firstDate;
     }
 
-    public void setFirstDate(LocalDateTime firstDate) {
+    public void setFirstDate(LocalDate firstDate) {
         this.firstDate = firstDate;
     }
 
-    public LocalDateTime getLastDate() {
+    public LocalDate getLastDate() {
         return lastDate;
     }
 
-    public void setLastDate(LocalDateTime lastDate) {
+    public void setLastDate(LocalDate lastDate) {
         this.lastDate = lastDate;
     }
 
@@ -106,8 +107,7 @@ public class StudyTrip extends AbstractModel {
         this.studentIds = new HashSet<>();
     }
 
-    // LocalDate.now() return date w/o time
-    public StudyTrip(long id, String name, LocalDateTime firstDate, LocalDateTime lastDate, String partnerUni, String city, String country, Set<Long> studentIds) {
+    public StudyTrip(long id, String name, LocalDate firstDate, LocalDate lastDate, String partnerUni, String city, String country, Set<Long> studentIds) {
         this.id = id;
         this.name = name;
         this.firstDate = firstDate;

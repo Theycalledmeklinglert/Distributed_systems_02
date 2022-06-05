@@ -16,8 +16,9 @@
 
 package de.fhws.fiw.fds.exam02.services;
 
-import de.fhws.pvs.unit10.slides.sutton.server.api.services.AbstractService;
-import de.fhws.pvs.unit10.slides.suttondemo.api.states.DispatcherState;
+
+import de.fhws.fiw.fds.exam02.states.DispatcherState;
+import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

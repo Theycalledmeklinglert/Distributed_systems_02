@@ -17,6 +17,8 @@
 package de.fhws.fiw.fds.exam02.states.persons;
 
 
+
+
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.put.AbstractPutState;
 import de.fhws.fiw.fds.sutton.server.database.DaoFactory;
@@ -29,7 +31,7 @@ public class PutSingleStudyTrip extends AbstractPutState<StudyTrip>
 {
 	public PutSingleStudyTrip(final Builder builder )
 	{
-		super( builder );
+		super( builder );		// ????
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class PutSingleStudyTrip extends AbstractPutState<StudyTrip>
 
 	@Override protected NoContentResult updateModel( )
 	{
-		return DaoFactory.getInstance( ).getStudentDao( ).update( this.modelToUpdate );
+		return DaoFactory.getInstance( ).getStudyTripDao( ).update( this.modelToUpdate );
 	}
 
 	@Override protected void defineTransitionLinks( )
@@ -52,7 +54,7 @@ public class PutSingleStudyTrip extends AbstractPutState<StudyTrip>
 			this.modelToUpdate.getId( ) );
 	}
 
-	public static class Builder extends AbstractPutStateBuilder<Student>
+	public static class Builder extends AbstractPutStateBuilder<StudyTrip>
 	{
 		@Override public AbstractState build( )
 		{

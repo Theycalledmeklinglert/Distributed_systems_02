@@ -1,22 +1,23 @@
 package de.fhws.fiw.fds.exam02.services;
 
-import de.fhws.pvs.unit10.slides.sutton.server.api.services.AbstractService;
-import de.fhws.pvs.unit10.slides.suttondemo.api.states.locations.*;
-import de.fhws.pvs.unit10.slides.suttondemo.models.Location;
+
+import de.fhws.fiw.fds.exam02.states.locations.*;
+import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
+import de.fhws.fiw.fds.sutton.server.models.Student;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path( "locations" )
-public class LocationService extends AbstractService
+@Path( "students" )
+public class StudentService extends AbstractService
 {
 	@GET
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getAllLocations( )
+	public Response getAllStudents( )
 	{
-		return new GetAllLocations.Builder( )
-			.setQuery( new GetAllLocations.AllLocations( ) )
+		return new GetAllStudents.Builder( )
+			.setQuery( new GetAllStudents.AllStudents( ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -28,9 +29,9 @@ public class LocationService extends AbstractService
 	@GET
 	@Path( "{id: \\d+}" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getSingleLocation( @PathParam( "id" ) final long id )
+	public Response getSingleStudent( @PathParam( "id" ) final long id )
 	{
-		return new GetSingleLocation.Builder( )
+		return new GetSingleStudent.Builder( )
 			.setRequestedId( id )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
@@ -42,10 +43,10 @@ public class LocationService extends AbstractService
 
 	@POST
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response createSingleLocation( final Location locationModel )
+	public Response createSingleLocation( final Student studentModel )
 	{
-		return new PostNewLocation.Builder( )
-			.setModelToCreate( locationModel )
+		return new PostNewStudent.Builder( )
+			.setModelToCreate( studentModel )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -57,11 +58,11 @@ public class LocationService extends AbstractService
 	@PUT
 	@Path( "{id: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response updateSingleLocation( @PathParam( "id" ) final long id, final Location locationModel )
+	public Response updateSingleStudent( @PathParam( "id" ) final long id, final Student studentModel )
 	{
-		return new PutSingleLocation.Builder( )
+		return new PutSingleStudent.Builder( )
 			.setRequestedId( id )
-			.setModelToUpdate( locationModel )
+			.setModelToUpdate( studentModel )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -73,9 +74,9 @@ public class LocationService extends AbstractService
 	@DELETE
 	@Path( "{id: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response deleteSingleLocation( @PathParam( "id" ) final long id )
+	public Response deleteSingleStudent(@PathParam( "id" ) final long id )
 	{
-		return new DeleteSingleLocation.Builder( )
+		return new DeleteSingleStudent.Builder( )
 			.setRequestedId( id )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )

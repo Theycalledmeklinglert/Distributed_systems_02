@@ -1,5 +1,8 @@
 package de.fhws.fiw.fds.sutton.server.database.inmemory;
 
+/*
+
+
 import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
 import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 import org.apache.commons.lang.StringUtils;
@@ -76,3 +79,4 @@ public class StudyTripStorage extends AbstractInMemoryStorage
     }
 
 }
+*/

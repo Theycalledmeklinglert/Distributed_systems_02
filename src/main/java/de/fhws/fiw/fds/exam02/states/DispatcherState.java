@@ -16,6 +16,9 @@
 
 package de.fhws.fiw.fds.exam02.states;
 
+import de.fhws.fiw.fds.exam02.states.persons.StudyTripRelTypes;
+import de.fhws.fiw.fds.exam02.states.persons.StudyTripUri;
+import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.get.AbstractGetDispatcherState;
 
 import javax.ws.rs.core.MediaType;
@@ -29,8 +32,8 @@ public class DispatcherState extends AbstractGetDispatcherState
 
 	@Override protected void defineTransitionLinks( )
 	{
-		addLink( PersonUri.REL_PATH, PersonRelTypes.CREATE_PERSON, MediaType.APPLICATION_JSON );
-		addLink( PersonUri.REL_PATH, PersonRelTypes.GET_ALL_PERSONS, MediaType.APPLICATION_JSON );
+		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.CREATE_STUDYTRIP, MediaType.APPLICATION_JSON );
+		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.GET_ALL_STUDYTRIPS, MediaType.APPLICATION_JSON );
 	}
 
 	public static class Builder extends AbstractDispatcherStateBuilder

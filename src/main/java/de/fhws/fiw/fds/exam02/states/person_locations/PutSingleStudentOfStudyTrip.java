@@ -6,12 +6,6 @@ import de.fhws.fiw.fds.sutton.server.database.DaoFactory;
 import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
 import de.fhws.fiw.fds.sutton.server.database.results.SingleModelResult;
 import de.fhws.fiw.fds.sutton.server.models.Student;
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.AbstractState;
-import de.fhws.pvs.unit10.slides.sutton.server.api.states.put.AbstractPutRelationState;
-import de.fhws.pvs.unit10.slides.sutton.server.database.results.NoContentResult;
-import de.fhws.pvs.unit10.slides.sutton.server.database.results.SingleModelResult;
-import de.fhws.pvs.unit10.slides.suttondemo.database.DaoFactory;
-import de.fhws.pvs.unit10.slides.suttondemo.models.Location;
 
 public class PutSingleStudentOfStudyTrip extends AbstractPutRelationState<Student>
 {

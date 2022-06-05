@@ -22,22 +22,25 @@ import de.fhws.fiw.fds.sutton.server.database.inmemory.AbstractInMemoryStorage;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.HashSet;
 
 public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip> implements StudyTripDao
 {
 	public StudyTripInMemoryStorage( )
 	{
 		super( );
-	//	populateData( );
+		populateData( );
 	}
 
-	/* private void populateData( )
+	  private void populateData( )
 	{
-		create( new Person(
-			"Felix", "Leiter",
-			"felix.leiter@cia.com",
-			LocalDate.of( 1960, 2, 9 ) ) );
+		long id = 0;
+		create( new StudyTrip(id, "Test Trip", LocalDate.of(2000, 01, 01), LocalDate.of(2001, 01, 01), "FHWS", "Wuerzburg", "Germany", new HashSet<Long>()));
 	}
 
-	 */
+
+
+
 }

@@ -79,6 +79,7 @@ public class StudyTripService extends AbstractService
 			.execute( );
 	}
 
+
 	@PUT
 	@Path( "{id: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
@@ -94,6 +95,8 @@ public class StudyTripService extends AbstractService
 			.build( )
 			.execute( );
 	}
+
+
 
 	@DELETE
 	@Path( "{id: \\d+}" )
