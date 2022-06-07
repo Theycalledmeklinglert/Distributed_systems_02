@@ -34,6 +34,8 @@ public class DispatcherState extends AbstractGetDispatcherState
 	{
 		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.CREATE_STUDYTRIP, MediaType.APPLICATION_JSON );
 		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.GET_ALL_STUDYTRIPS, MediaType.APPLICATION_JSON );
+
+
 	}
 
 	public static class Builder extends AbstractDispatcherStateBuilder

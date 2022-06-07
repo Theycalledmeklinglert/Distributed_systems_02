@@ -27,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 
 import javax.ws.rs.core.GenericEntity;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.function.Predicate;
 
@@ -65,18 +66,19 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 	{
 		protected String name;
 
-		protected LocalDate startDate;
+		protected LocalDate firstDate;
 
-		protected LocalDate endDate;
+		protected LocalDate lastDate;
 
 		protected String city;
 
 		protected String country;
 
-		public ByNameAndStartAndEndDateAndCityAndCountry(String name, String startDate, String endDate, String city, String country) {
+		public ByNameAndStartAndEndDateAndCityAndCountry(String name, String firstDate, String lastDate, String city, String country) {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			this.name = name;
-			if(!StringUtils.isEmpty(startDate)) this.startDate = LocalDate.parse(startDate);
-			if(!StringUtils.isEmpty(endDate)) this.endDate =LocalDate.parse(endDate);
+			if(!StringUtils.isEmpty(firstDate)) this.firstDate = LocalDate.parse(firstDate, formatter);
+			if(!StringUtils.isEmpty(lastDate)) this.lastDate = LocalDate.parse(lastDate, formatter);
 			this.city = city;
 			this.country = country;
 		}
@@ -103,12 +105,12 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 
 		private boolean matchStartDate( final StudyTrip trip )
 		{
-			return startDate == null || trip.getFirstDate().isBefore(startDate) || trip.getFirstDate().isEqual(startDate);
+			return firstDate == null || trip.getFirstDate().isBefore(firstDate) || trip.getFirstDate().isEqual(firstDate);
 		}
 
 		private boolean matchEndDate( final StudyTrip trip )
 		{
-			return endDate == null || trip.getLastDate().isAfter(endDate) || trip.getLastDate().isEqual(endDate);
+			return lastDate == null || trip.getLastDate().isAfter(lastDate) || trip.getLastDate().isEqual(lastDate);
 		}
 
 		private boolean matchCity( final StudyTrip trip )

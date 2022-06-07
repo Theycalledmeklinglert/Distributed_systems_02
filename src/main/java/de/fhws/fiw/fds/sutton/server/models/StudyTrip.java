@@ -1,10 +1,12 @@
 package de.fhws.fiw.fds.sutton.server.models;
 
+import com.owlike.genson.annotation.JsonConverter;
+import com.owlike.genson.annotation.JsonDateFormat;
 import de.fhws.fiw.fds.sutton.client.Link;
+import de.fhws.fiw.fds.sutton.server.api.converter.JsonDateTimeConverter;
 import org.glassfish.jersey.linking.InjectLink;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,19 +36,21 @@ public class StudyTrip extends AbstractModel {
     public void setName(String name) {
         this.name = name;
     }
-
+    @JsonConverter(JsonDateTimeConverter.class)
     public LocalDate getFirstDate() {
         return firstDate;
     }
+    @JsonConverter(JsonDateTimeConverter.class)
 
     public void setFirstDate(LocalDate firstDate) {
         this.firstDate = firstDate;
     }
+    @JsonConverter(JsonDateTimeConverter.class)
 
     public LocalDate getLastDate() {
         return lastDate;
     }
-
+    @JsonConverter(JsonDateTimeConverter.class)
     public void setLastDate(LocalDate lastDate) {
         this.lastDate = lastDate;
     }
@@ -89,6 +93,21 @@ public class StudyTrip extends AbstractModel {
 
     public void setStudentIds(Set<Long> studentIds) {
         this.studentIds = studentIds;
+    }
+
+    @Override
+    public String toString() {
+        return "StudyTrip{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", firstDate=" + firstDate +
+                ", lastDate=" + lastDate +
+                ", partnerUni='" + partnerUni + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", students=" + students +
+                ", studentIds=" + studentIds +
+                '}';
     }
 
     @InjectLink(

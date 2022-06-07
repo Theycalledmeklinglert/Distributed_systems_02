@@ -17,14 +17,19 @@
 package de.fhws.fiw.fds.sutton.server.database;
 
 
+import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
+import de.fhws.fiw.fds.sutton.server.models.Student;
 import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 import de.fhws.fiw.fds.sutton.server.database.inmemory.AbstractInMemoryStorage;
 
 
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.HashSet;
+import java.util.*;
+
+import static de.fhws.fiw.fds.sutton.server.models.ValidityCheck.checkStudent;
+import static de.fhws.fiw.fds.sutton.server.models.ValidityCheck.checkStudyTrip;
 
 public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip> implements StudyTripDao
 {
@@ -40,7 +45,13 @@ public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip>
 		create( new StudyTrip(id, "Test Trip", LocalDate.of(2000, 01, 01), LocalDate.of(2001, 01, 01), "FHWS", "Wuerzburg", "Germany", new HashSet<Long>()));
 	}
 
-
+	public NoContentResult create(final StudyTrip studyTrip )
+	{
+		if(!checkStudyTrip(studyTrip)) throw new WebApplicationException(Response.status(422).build());
+		studyTrip.setId( nextId( ) );
+		this.storage.put( studyTrip.getId( ), studyTrip );
+		return new NoContentResult( );
+	}
 
 
 }

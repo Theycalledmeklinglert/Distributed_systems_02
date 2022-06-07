@@ -2,6 +2,7 @@ package de.fhws.fiw.fds.exam02.services;
 
 
 import de.fhws.fiw.fds.exam02.states.locations.*;
+import de.fhws.fiw.fds.sutton.server.api.queries.PagingBehaviorUsingPage;
 import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
 import de.fhws.fiw.fds.sutton.server.models.Student;
 
@@ -14,10 +15,11 @@ public class StudentService extends AbstractService
 {
 	@GET
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getAllStudents( )
+	public Response getAllStudents(@DefaultValue( "1" ) @QueryParam( PagingBehaviorUsingPage.QUERY_PARAM_PAGE) final int pageNumber)
 	{
 		return new GetAllStudents.Builder( )
-			.setQuery( new GetAllStudents.AllStudents( ) )
+			.setQuery( new GetAllStudents.AllStudents( )
+					.setPagingBehavior( new PagingBehaviorUsingPage( pageNumber ) ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -43,7 +45,7 @@ public class StudentService extends AbstractService
 
 	@POST
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response createSingleLocation( final Student studentModel )
+	public Response createSingleStudent(final Student studentModel )
 	{
 		return new PostNewStudent.Builder( )
 			.setModelToCreate( studentModel )

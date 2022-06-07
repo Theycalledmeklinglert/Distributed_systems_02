@@ -18,6 +18,7 @@ package de.fhws.fiw.fds.exam02.services;
 
 import de.fhws.fiw.fds.exam02.states.person_locations.*;
 import de.fhws.fiw.fds.exam02.states.persons.*;
+import de.fhws.fiw.fds.sutton.server.api.queries.PagingBehaviorUsingPage;
 import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
 import de.fhws.fiw.fds.sutton.server.models.Student;
 import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
@@ -26,6 +27,7 @@ import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.LocalDate;
 
 @Path( "studyTrips" )
 public class StudyTripService extends AbstractService
@@ -34,14 +36,17 @@ public class StudyTripService extends AbstractService
 	@Produces( {MediaType.APPLICATION_JSON} )
 	public Response getAllStudyTrips(
 		@DefaultValue( "" ) @QueryParam( "name" ) final String name,
-		@DefaultValue( "" ) @QueryParam( "startDate" ) final String startDate,
-		@DefaultValue( "" ) @QueryParam( "endDate" ) final String endDate,
+		@DefaultValue( "" ) @QueryParam( "firstDate" ) final String startDate,
+		@DefaultValue( "" ) @QueryParam( "lastDate" ) final String endDate,
 		@DefaultValue( "" ) @QueryParam( "city" ) final String city,
-		@DefaultValue( "" ) @QueryParam( "country" ) final String countrty
+		@DefaultValue( "" ) @QueryParam( "country" ) final String country,
+		@DefaultValue( "1" ) @QueryParam( PagingBehaviorUsingPage.QUERY_PARAM_PAGE ) final int pageNumber
+
 		)
 	{
 		return new GetAllStudyTrips.Builder( )
-			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, countrty ) )
+			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, country )
+					.setPagingBehavior( new PagingBehaviorUsingPage( pageNumber ) ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -66,7 +71,7 @@ public class StudyTripService extends AbstractService
 	}
 
 	@POST
-	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
+	@Consumes( { MediaType.APPLICATION_JSON} )
 	public Response createSingleStudyTrip(final StudyTrip studyTripModel )
 	{
 		return new PostNewStudyTrip.Builder( )
