@@ -16,8 +16,8 @@
 
 package de.fhws.fiw.fds.exam02.states;
 
-import de.fhws.fiw.fds.exam02.states.persons.StudyTripRelTypes;
-import de.fhws.fiw.fds.exam02.states.persons.StudyTripUri;
+import de.fhws.fiw.fds.exam02.states.studyTrips.StudyTripRelTypes;
+import de.fhws.fiw.fds.exam02.states.studyTrips.StudyTripUri;
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.get.AbstractGetDispatcherState;
 

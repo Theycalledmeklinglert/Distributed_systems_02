@@ -16,8 +16,8 @@
 
 package de.fhws.fiw.fds.exam02.services;
 
-import de.fhws.fiw.fds.exam02.states.person_locations.*;
-import de.fhws.fiw.fds.exam02.states.persons.*;
+import de.fhws.fiw.fds.exam02.states.studyTrip_students.*;
+import de.fhws.fiw.fds.exam02.states.studyTrips.*;
 import de.fhws.fiw.fds.sutton.server.api.queries.PagingBehaviorUsingPage;
 import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
 import de.fhws.fiw.fds.sutton.server.models.Student;
@@ -27,7 +27,6 @@ import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 
 @Path( "studyTrips" )
 public class StudyTripService extends AbstractService

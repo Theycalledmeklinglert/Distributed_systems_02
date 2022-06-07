@@ -1,4 +1,4 @@
-package de.fhws.fiw.fds.exam02.states.locations;
+package de.fhws.fiw.fds.exam02.states.students;
 
 
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;

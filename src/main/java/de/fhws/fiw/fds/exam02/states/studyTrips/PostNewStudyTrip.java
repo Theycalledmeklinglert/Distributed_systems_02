@@ -14,51 +14,41 @@
  * limitations under the License.
  */
 
-package de.fhws.fiw.fds.exam02.states.persons;
-
-
-
+package de.fhws.fiw.fds.exam02.states.studyTrips;
 
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
-import de.fhws.fiw.fds.sutton.server.api.states.put.AbstractPutState;
+import de.fhws.fiw.fds.sutton.server.api.states.post.AbstractPostState;
 import de.fhws.fiw.fds.sutton.server.database.DaoFactory;
 import de.fhws.fiw.fds.sutton.server.database.results.NoContentResult;
-import de.fhws.fiw.fds.sutton.server.database.results.SingleModelResult;
-import de.fhws.fiw.fds.sutton.server.models.Student;
 import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
 
-public class PutSingleStudyTrip extends AbstractPutState<StudyTrip>
+
+public class PostNewStudyTrip extends AbstractPostState<StudyTrip>
 {
-	public PutSingleStudyTrip(final Builder builder )
+	public PostNewStudyTrip(final Builder builder )
 	{
-		super( builder );		// ????
+		super( builder );
 	}
 
 	@Override
 	protected void authorizeRequest() {
 	}
 
-	@Override protected SingleModelResult<StudyTrip> loadModel( )
+	@Override protected NoContentResult saveModel( )
 	{
-		return DaoFactory.getInstance( ).getStudyTripDao( ).readById( this.modelToUpdate.getId( ) );
-	}
-
-	@Override protected NoContentResult updateModel( )
-	{
-		return DaoFactory.getInstance( ).getStudyTripDao( ).update( this.modelToUpdate );
+		return DaoFactory.getInstance( ).getStudyTripDao( ).create( this.modelToStore );
 	}
 
 	@Override protected void defineTransitionLinks( )
 	{
-		addLink( StudyTripUri.REL_PATH_ID, StudyTripRelTypes.GET_SINGLE_STUDYTRIP, getAcceptRequestHeader( ),
-			this.modelToUpdate.getId( ) );
+
 	}
 
-	public static class Builder extends AbstractPutStateBuilder<StudyTrip>
+	public static class Builder extends AbstractPostStateBuilder<StudyTrip>
 	{
 		@Override public AbstractState build( )
 		{
-			return new PutSingleStudyTrip( this );
+			return new PostNewStudyTrip( this );
 		}
 	}
 }

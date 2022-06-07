@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package de.fhws.fiw.fds.exam02.states.persons;
+package de.fhws.fiw.fds.exam02.states.studyTrips;
 
-import de.fhws.fiw.fds.exam02.states.person_locations.StudyTripStudentUri;
-import de.fhws.fiw.fds.exam02.states.person_locations.StudyTripStudentRelTypes;
+import de.fhws.fiw.fds.exam02.states.studyTrip_students.StudyTripStudentUri;
+import de.fhws.fiw.fds.exam02.states.studyTrip_students.StudyTripStudentRelTypes;
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.get.AbstractGetState;
 import de.fhws.fiw.fds.sutton.server.database.DaoFactory;

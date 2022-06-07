@@ -1,4 +1,4 @@
-package de.fhws.fiw.fds.exam02.states.locations;
+package de.fhws.fiw.fds.exam02.states.students;
 
 public interface StudentRelTypes
 {

@@ -1,7 +1,7 @@
-package de.fhws.fiw.fds.exam02.states.locations;
+package de.fhws.fiw.fds.exam02.states.students;
 
-import de.fhws.fiw.fds.exam02.states.persons.StudyTripRelTypes;
-import de.fhws.fiw.fds.exam02.states.persons.StudyTripUri;
+import de.fhws.fiw.fds.exam02.states.studyTrips.StudyTripRelTypes;
+import de.fhws.fiw.fds.exam02.states.studyTrips.StudyTripUri;
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.delete.AbstractDeleteState;
 import de.fhws.fiw.fds.sutton.server.database.DaoFactory;

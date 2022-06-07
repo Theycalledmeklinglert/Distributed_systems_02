@@ -1,7 +1,7 @@
 package de.fhws.fiw.fds.exam02.services;
 
 
-import de.fhws.fiw.fds.exam02.states.locations.*;
+import de.fhws.fiw.fds.exam02.states.students.*;
 import de.fhws.fiw.fds.sutton.server.api.queries.PagingBehaviorUsingPage;
 import de.fhws.fiw.fds.sutton.server.api.services.AbstractService;
 import de.fhws.fiw.fds.sutton.server.models.Student;

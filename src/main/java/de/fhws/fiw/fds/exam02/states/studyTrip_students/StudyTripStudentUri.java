@@ -1,4 +1,4 @@
-package de.fhws.fiw.fds.exam02.states.person_locations;
+package de.fhws.fiw.fds.exam02.states.studyTrip_students;
 
 
 import de.fhws.fiw.fds.exam02.Start;

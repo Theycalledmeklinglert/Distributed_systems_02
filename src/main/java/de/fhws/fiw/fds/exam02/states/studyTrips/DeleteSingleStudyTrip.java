@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.fhws.fiw.fds.exam02.states.persons;
+package de.fhws.fiw.fds.exam02.states.studyTrips;
 
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 import de.fhws.fiw.fds.sutton.server.api.states.delete.AbstractDeleteState;

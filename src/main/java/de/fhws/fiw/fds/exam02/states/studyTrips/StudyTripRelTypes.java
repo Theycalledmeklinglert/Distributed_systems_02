@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package de.fhws.fiw.fds.exam02.states.persons;
+package de.fhws.fiw.fds.exam02.states.studyTrips;
 
-
-import de.fhws.fiw.fds.exam02.Start;
-
-public interface StudyTripUri
+public interface StudyTripRelTypes
 {
-	String PATH_ELEMENT = "studyTrips";
-	String REL_PATH = Start.CONTEXT_PATH + "/api/" + PATH_ELEMENT;
-	String REL_PATH_ID = REL_PATH + "/{id}";
+	String CREATE_STUDYTRIP = "createStudyTrip";
+	String GET_ALL_STUDYTRIPS = "getAllStudyTrips";
+	String UPDATE_SINGLE_STUDYTRIP = "updateStudyTrip";
+	String DELETE_SINGLE_STUDYTRIP = "deleteStudyTrip";
+	String GET_SINGLE_STUDYTRIP = "getStudyTrip";
 }
