@@ -1,6 +1,6 @@
 package de.fhws.fiw.fds.sutton.server.api.states.put;
 
-import de.fhws.fiw.fds.sutton.server.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
 
 public abstract class AbstractPutRelationState<T extends AbstractModel> extends AbstractPutState<T>
 {

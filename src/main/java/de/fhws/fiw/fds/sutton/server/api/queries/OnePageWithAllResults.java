@@ -1,6 +1,6 @@
 package de.fhws.fiw.fds.sutton.server.api.queries;
 
-import de.fhws.fiw.fds.sutton.server.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
 
 public class OnePageWithAllResults<T extends AbstractModel> extends PagingBehaviorUsingOffsetSize<T>
 {

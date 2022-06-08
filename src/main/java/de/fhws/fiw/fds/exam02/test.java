@@ -1,13 +1,7 @@
 package de.fhws.fiw.fds.exam02;
 
-import com.owlike.genson.Genson;
-import de.fhws.fiw.fds.sutton.server.models.StudyTrip;
-import okhttp3.*;
-
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Optional;
 
 public class test {
     public static void main(String[] args) throws IOException {

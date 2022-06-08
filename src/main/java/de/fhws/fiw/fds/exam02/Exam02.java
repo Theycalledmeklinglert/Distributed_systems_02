@@ -16,9 +16,9 @@
 
 package de.fhws.fiw.fds.exam02;
 
-import de.fhws.fiw.fds.exam02.services.DispatcherService;
-import de.fhws.fiw.fds.exam02.services.StudentService;
-import de.fhws.fiw.fds.exam02.services.StudyTripService;
+import de.fhws.fiw.fds.exam02.api.services.DispatcherService;
+import de.fhws.fiw.fds.exam02.api.services.StudentService;
+import de.fhws.fiw.fds.exam02.api.services.StudyTripService;
 import de.fhws.fiw.fds.sutton.server.api.AbstractApplication;
 
 import javax.ws.rs.ApplicationPath;
