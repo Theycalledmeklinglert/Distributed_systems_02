@@ -43,7 +43,6 @@ public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip>
 		create( new StudyTrip(id, "Test Trip", LocalDate.of(2000, 01, 01), LocalDate.of(2001, 01, 01), "FHWS", "Wuerzburg", "Germany", new HashSet<Long>()));
 	}
 
-
 	public NoContentResult create(final StudyTrip studyTrip )
 	{
 		if(!checkStudyTrip(studyTrip)) throw new WebApplicationException(Response.status(422).build());

@@ -19,7 +19,8 @@ public class ValidityCheck {
             System.out.println(" Positive Check 1");
             if(studyTrip.getFirstDate().isBefore(studyTrip.getLastDate()) || studyTrip.getFirstDate().isEqual(studyTrip.getLastDate()))
                 {
-                        return true;
+                    System.out.println("Positive Check 2 ");
+                    return true;
                 }
         }
         return false;
@@ -63,7 +64,7 @@ public class ValidityCheck {
 
     private static boolean isLetter(String string)
     {
-        return string.matches("^[ A-Za-z]+$");
+        return string.matches("^[\\s A-Za-z0-9]+$");
     }
 
     private static boolean isValidEMail(String eMail)
