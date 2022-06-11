@@ -44,7 +44,9 @@ public abstract class AbstractPostState<T extends AbstractModel> extends Abstrac
 		authorizeRequest( );
 
 		if ( this.modelToStore.getId( ) != 0 )
+
 		{
+
 			return Response.status( Response.Status.BAD_REQUEST ).build( );
 		}
 

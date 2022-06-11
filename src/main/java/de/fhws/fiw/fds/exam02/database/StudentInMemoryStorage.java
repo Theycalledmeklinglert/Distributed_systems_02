@@ -36,6 +36,7 @@ public class StudentInMemoryStorage extends AbstractInMemoryStorage<Student> imp
 	@Override
 	public NoContentResult create(final Student student )
 	{
+		System.out.println("In student \"create\"");
 		if(!checkStudent(student)) throw new WebApplicationException(Response.status(422).build());
 		student.setId( nextId( ) );
 		this.storage.put( student.getId( ), student );

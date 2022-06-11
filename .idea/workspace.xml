@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="changed project structure">
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/services/StudyTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/services/StudyTripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/DeleteSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/DeleteSingleStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudentInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudentInMemoryStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripInMemoryStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripToStudentsRelationStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripToStudentsRelationStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/StudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/StudyTrip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/ValidityCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/ValidityCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/unit-10-associations-between-resources",
+    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/fdsexam02studentk50806",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -60,6 +67,7 @@
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.fhws.fiw.fds.sutton.utils" />
       <recent name="de.fhws.fiw.fds.sutton.server.models" />
       <recent name="de.fhws.fiw.fds.sutton.server.api.converter" />
       <recent name="de.fhws.fiw.fds.exam02" />
@@ -131,7 +139,9 @@
       <workItem from="1654766152325" duration="595000" />
       <workItem from="1654784516424" duration="2000" />
       <workItem from="1654803453147" duration="16000" />
-      <workItem from="1654868915113" duration="877000" />
+      <workItem from="1654868915113" duration="4156000" />
+      <workItem from="1654873230124" duration="13958000" />
+      <workItem from="1654941809035" duration="2920000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1654160241530</created>
@@ -182,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654705325703</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="bugfix">
+      <created>1654869819323</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654869819323</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +224,7 @@
     <MESSAGE value="Most of the functionality implemented" />
     <MESSAGE value="naming changes" />
     <MESSAGE value="changed project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed project structure" />
+    <MESSAGE value="bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
   </component>
 </project>

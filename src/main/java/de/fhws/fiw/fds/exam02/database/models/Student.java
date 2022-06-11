@@ -1,5 +1,11 @@
 package de.fhws.fiw.fds.exam02.database.models;
 
+import com.owlike.genson.annotation.JsonConverter;
+import de.fhws.fiw.fds.sutton.server.api.converter.JsonServerLinkConverter;
+import org.glassfish.jersey.linking.InjectLink;
+
+import javax.ws.rs.core.Link;
+
 public class Student extends AbstractModel {
 
     long id;
@@ -8,8 +14,46 @@ public class Student extends AbstractModel {
     private String course;
     private int semester;
 
-    long immatricNum; // muss unique sein
+    long immatricNum;
     String email;
+
+    @InjectLink(
+            style = InjectLink.Style.ABSOLUTE,
+            value = "/students/${instance.id}",
+            rel = "self",
+            title = "self",
+            type = "application/json",
+            condition = "${instance.primaryId == 0}"    // ???
+    )
+    private Link selfLinkPrimary;
+
+    @InjectLink(
+            style = InjectLink.Style.ABSOLUTE,
+            value = "studyTrips/${instance.primaryId}/students/${instance.id}",
+            rel = "self",
+            title = "self",
+            type = "application/json",
+            condition = "${instance.primaryId != 0}"
+    )
+    private Link selfLinkSecondary;
+
+    @JsonConverter(JsonServerLinkConverter.class)
+    public Link getSelfLinkPrimary() {
+        return selfLinkPrimary;
+    }
+
+    public void setSelfLinkPrimary(Link selfLinkPrimary) {
+        this.selfLinkPrimary = selfLinkPrimary;
+    }
+
+    @JsonConverter(JsonServerLinkConverter.class)
+    public Link getSelfLinkSecondary() {
+        return selfLinkSecondary;
+    }
+
+    public void setSelfLinkSecondary(Link selfLinkSecondary) {
+        this.selfLinkSecondary = selfLinkSecondary;
+    }
 
     public Student() {
     }

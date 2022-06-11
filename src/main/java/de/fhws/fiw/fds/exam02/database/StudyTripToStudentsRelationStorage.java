@@ -12,7 +12,7 @@ public class StudyTripToStudentsRelationStorage extends AbstractInMemoryRelation
 		this.storage.put( 1l, 1l );
 	}
 
-	@Override protected IDatabaseAccessObject<Student> getSecondaryStorage( )
+	protected IDatabaseAccessObject<Student> getSecondaryStorage( )
 	{
 		return DaoFactory.getInstance( ).getStudentDao( );
 	}

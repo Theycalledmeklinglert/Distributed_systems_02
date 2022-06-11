@@ -28,7 +28,7 @@ public class DeleteSingleStudent extends AbstractDeleteState<Student>
 	@Override protected NoContentResult deleteModel( )
 	{
 		DaoFactory.getInstance( ).getStudyTripStudentDao( ).deleteRelationsToSecondary( this.modelIdToDelete );
-		return DaoFactory.getInstance( ).getStudyTripDao( ).delete( this.modelIdToDelete );
+		return DaoFactory.getInstance( ).getStudentDao( ).delete( this.modelIdToDelete );
 	}
 
 	@Override protected void defineTransitionLinks( )

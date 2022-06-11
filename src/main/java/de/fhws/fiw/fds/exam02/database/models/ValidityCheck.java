@@ -2,32 +2,23 @@ package de.fhws.fiw.fds.exam02.database.models;
 
 import de.fhws.fiw.fds.exam02.database.DaoFactory;
 
-import java.util.regex.Pattern;
-
 public class ValidityCheck {
 
     public static boolean checkStudyTrip(StudyTrip studyTrip)
     {
         if(isMissingAttributes(studyTrip))
         {
-            System.out.println("Check 1");
             return false;
         }
-        System.out.println("here");
         if(isLetter(studyTrip.getName()) && isLetter(studyTrip.getPartnerUni()) && isLetter(studyTrip.getCity()) && isLetter(studyTrip.getCountry()))
         {
-            System.out.println(" Positive Check 1");
             if(studyTrip.getFirstDate().isBefore(studyTrip.getLastDate()) || studyTrip.getFirstDate().isEqual(studyTrip.getLastDate()))
                 {
-                    System.out.println("Positive Check 2 ");
                     return true;
                 }
         }
         return false;
     }
-
-
-
 
 
     public static boolean checkStudent(Student student) {

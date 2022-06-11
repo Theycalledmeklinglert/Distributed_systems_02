@@ -1,4 +1,4 @@
-/*
+package de.fhws.fiw.fds.exam02.api.services;/*
  * Copyright 2019 University of Applied Sciences Würzburg-Schweinfurt, Germany
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package de.fhws.fiw.fds.exam02.api.services;
 
 
 import de.fhws.fiw.fds.exam02.api.states.studyTrip_students.*;
@@ -43,6 +41,8 @@ public class StudyTripService extends AbstractService
 
 		)
 	{
+		System.out.println("Here 4");
+
 		return new GetAllStudyTrips.Builder( )
 			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, country )
 					.setPagingBehavior( new PagingBehaviorUsingPage( pageNumber ) ) )
@@ -73,6 +73,7 @@ public class StudyTripService extends AbstractService
 	@Consumes( { MediaType.APPLICATION_JSON} )
 	public Response createSingleStudyTrip(final StudyTrip studyTripModel )
 	{
+		System.out.println("Entered Post");
 		return new PostNewStudyTrip.Builder( )
 			.setModelToCreate( studyTripModel )
 			.setUriInfo( this.uriInfo )
@@ -139,8 +140,8 @@ public class StudyTripService extends AbstractService
 	@GET
 	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getLocationByIdOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
-		@PathParam( "studentId" ) final long studentId )
+	public Response getStudentByIdOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
+											  @PathParam( "studentId" ) final long studentId )
 	{
 		return new GetSingleStudentOfStudyTrip.Builder( )
 			.setParentId( studyTripId )
@@ -172,8 +173,8 @@ public class StudyTripService extends AbstractService
 	@PUT
 	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response updateNewLocationOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
-		@PathParam( "studentId" ) final long studentId, final Student student )
+	public Response updateNewStudentOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
+												@PathParam( "studentId" ) final long studentId, final Student student )
 	{
 		return new PutSingleStudentOfStudyTrip.Builder( )
 			.setParentId( studyTripId )
@@ -189,8 +190,8 @@ public class StudyTripService extends AbstractService
 
 	@DELETE
 	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
-	public Response deleteLocationOfPerson( @PathParam( "studyTripId" ) final long studyTripId,
-		@PathParam( "studentId" ) final long studentId )
+	public Response deleteStudentOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
+											 @PathParam( "studentId" ) final long studentId )
 	{
 		return new DeleteSingleStudentOfStudyTrip.Builder( )
 			.setParentId( studyTripId )
