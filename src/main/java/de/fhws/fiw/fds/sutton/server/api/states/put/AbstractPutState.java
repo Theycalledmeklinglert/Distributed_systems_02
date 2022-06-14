@@ -16,9 +16,9 @@
 
 package de.fhws.fiw.fds.sutton.server.api.states.put;
 
-import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
-import de.fhws.fiw.fds.exam02.database.results.NoContentResult;
-import de.fhws.fiw.fds.exam02.database.results.SingleModelResult;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.server.database.results.NoContentResult;
+import de.fhws.fiw.fds.exam02.server.database.results.SingleModelResult;
 import de.fhws.fiw.fds.sutton.server.api.states.AbstractState;
 
 import javax.ws.rs.core.Response;

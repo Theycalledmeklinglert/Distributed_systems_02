@@ -16,8 +16,8 @@
 
 package de.fhws.fiw.fds.sutton.server.api.queries;
 
-import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
-import de.fhws.fiw.fds.exam02.database.results.CollectionModelResult;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.server.database.results.CollectionModelResult;
 import de.fhws.fiw.fds.sutton.server.api.hyperlinks.Hyperlinks;
 
 import javax.ws.rs.core.UriInfo;

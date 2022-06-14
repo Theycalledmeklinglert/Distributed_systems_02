@@ -1,6 +1,6 @@
 package de.fhws.fiw.fds.sutton.server.api.queries;
 
-import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
 
 public abstract class AbstractRelationQuery<T extends AbstractModel> extends AbstractQuery<T>
 {

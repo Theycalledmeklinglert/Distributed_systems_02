@@ -1,6 +1,6 @@
 package de.fhws.fiw.fds.sutton.server.api.states.get;
 
-import de.fhws.fiw.fds.exam02.database.models.AbstractModel;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
 
 public abstract class AbstractGetRelationState<T extends AbstractModel> extends AbstractGetState<T>
 {
