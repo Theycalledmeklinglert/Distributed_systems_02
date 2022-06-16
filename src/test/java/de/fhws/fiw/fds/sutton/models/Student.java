@@ -1,6 +1,7 @@
-package de.fhws.fiw.fds.exam02.server.database.models;
+package de.fhws.fiw.fds.sutton.models;
 
 import com.owlike.genson.annotation.JsonConverter;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
 import de.fhws.fiw.fds.sutton.server.api.converter.JsonServerLinkConverter;
 import org.glassfish.jersey.linking.InjectLink;
 
@@ -17,13 +18,16 @@ public class Student extends AbstractModel {
     long immatricNum;
     String email;
 
+    // TODO: Does the Client need the InjectLinks of his model classes?
+
+
     @InjectLink(
             style = InjectLink.Style.ABSOLUTE,
             value = "/students/${instance.id}",
             rel = "self",
             title = "self",
             type = "application/json",
-            condition = "${instance.primaryId == 0}"
+            condition = "${instance.primaryId == 0}"    // ???
     )
     private Link selfLinkPrimary;
 

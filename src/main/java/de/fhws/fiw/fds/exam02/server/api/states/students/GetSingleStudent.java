@@ -25,6 +25,8 @@ public class GetSingleStudent extends AbstractGetState<Student>
 
 	@Override protected void defineTransitionLinks( )
 	{
+		addLink(StudentUri.REL_PATH_ID, StudentRelTypes.GET_ALL_STUDENT, getAcceptRequestHeader(),
+				this.requestedId);
 		addLink( StudentUri.REL_PATH_ID, StudentRelTypes.UPDATE_SINGLE_STUDENT, getAcceptRequestHeader( ),
 			this.requestedId );
 		addLink( StudyTripUri.REL_PATH_ID, StudentRelTypes.DELETE_SINGLE_STUDENT, getAcceptRequestHeader( ),

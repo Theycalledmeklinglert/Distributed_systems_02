@@ -43,12 +43,16 @@ public class GetSingleStudyTrip extends AbstractGetState<StudyTrip>
 
 	@Override protected void defineTransitionLinks( )
 	{
+		addLink( StudyTripUri.PATH_ELEMENT, StudyTripRelTypes.GET_ALL_STUDYTRIPS, getAcceptRequestHeader( ),
+				this.requestedId );
 		addLink( StudyTripUri.REL_PATH_ID, StudyTripRelTypes.UPDATE_SINGLE_STUDYTRIP, getAcceptRequestHeader( ),
 			this.requestedId );
 		addLink( StudyTripUri.REL_PATH_ID, StudyTripRelTypes.DELETE_SINGLE_STUDYTRIP, getAcceptRequestHeader( ),
 			this.requestedId );
 		addLink( StudyTripStudentUri.REL_PATH, StudyTripStudentRelTypes.CREATE_STUDENT, getAcceptRequestHeader( ),
 			this.requestedId );
+		addLink( StudyTripStudentUri.REL_PATH, StudyTripStudentRelTypes.GET_ALL_LINKED_STUDENTS, getAcceptRequestHeader( ),
+				this.requestedId );
 	}
 
 	public static class Builder extends AbstractGetStateBuilder

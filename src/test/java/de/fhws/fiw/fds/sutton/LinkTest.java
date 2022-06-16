@@ -1,5 +1,6 @@
-package de.fhws.fiw.fds.sutton.client;
+package de.fhws.fiw.fds.sutton;
 
+import de.fhws.fiw.fds.sutton.client.Link;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

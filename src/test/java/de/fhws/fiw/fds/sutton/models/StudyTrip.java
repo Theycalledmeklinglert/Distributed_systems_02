@@ -1,6 +1,7 @@
-package de.fhws.fiw.fds.exam02.server.database.models;
+package de.fhws.fiw.fds.sutton.models;
 
 import com.owlike.genson.annotation.JsonConverter;
+import de.fhws.fiw.fds.exam02.server.database.models.AbstractModel;
 import de.fhws.fiw.fds.sutton.server.api.converter.JsonDateTimeConverter;
 import de.fhws.fiw.fds.sutton.server.api.converter.JsonServerLinkConverter;
 import org.glassfish.jersey.linking.InjectLink;
@@ -18,6 +19,9 @@ public class StudyTrip extends AbstractModel implements Serializable, Cloneable 
     String city;
     String country;
 
+    // TODO: Does the Client need the InjectLinks of his model classes?
+
+
     @InjectLink(
             style = InjectLink.Style.ABSOLUTE,
             value = "/studyTrips/${instance.id}",
@@ -30,7 +34,7 @@ public class StudyTrip extends AbstractModel implements Serializable, Cloneable 
             style = InjectLink.Style.ABSOLUTE,
             value = "studyTrips/${instance.id}/students",
             rel = "getStudentsOfStudyTrip",
-            title = "students",
+            title = "student",
             type = "application/json"
     )
     private Link students;

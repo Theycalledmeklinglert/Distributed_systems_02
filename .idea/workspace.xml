@@ -4,75 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="bugfix">
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="sorting">
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/TestYourApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/BasicAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/GenericWebClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/MyClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/StudyTripClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiResponsePrevVersion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/StudyTrip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/Exam02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Exam02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/Pagination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/Pagination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/services/DispatcherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/DispatcherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/services/StudyTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/DispatcherState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/DispatcherState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/DeleteSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/DeleteSingleStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/GetAllStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetAllStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/GetSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetSingleStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/PostNewStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/PostNewStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/PutSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/PutSingleStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/StudentRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/StudentRelTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/students/StudentUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/StudentUri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/DeleteSingleStudentOfStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/DeleteSingleStudentOfStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/GetAllStudentsOfStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/GetAllStudentsOfStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/GetSingleStudentOfStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/GetSingleStudentOfStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/PostNewStudentOfStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/PostNewStudentOfStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/PutSingleStudentOfStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/PutSingleStudentOfStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/StudyTripStudentRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/StudyTripStudentRelTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrip_students/StudyTripStudentUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrip_students/StudyTripStudentUri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/DeleteSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/DeleteSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/GetAllStudyTrips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetAllStudyTrips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/GetSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/PostNewStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PostNewStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/PutSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PutSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/StudyTripRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripRelTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/api/states/studyTrips/StudyTripUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripUri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/IDatabaseAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/IDatabaseAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/IDatabaseRelationAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/IDatabaseRelationAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudentInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripStudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripStudentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/StudyTripToStudentsRelationStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripToStudentsRelationStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/inmemory/AbstractInMemoryRelationStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/inmemory/AbstractInMemoryRelationStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/inmemory/AbstractInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/inmemory/AbstractInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/AbstractModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/AbstractModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/EmptyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/EmptyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/StudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/StudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/models/ValidityCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/ValidityCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/results/AbstractResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/AbstractResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/results/CollectionModelResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/CollectionModelResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/results/NoContentResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/NoContentResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/database/results/SingleModelResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/SingleModelResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractRelationQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/AbstractRelationQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/OnePageWithAllResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/OnePageWithAllResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingOffsetSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingOffsetSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/queries/PagingBehaviorUsingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/security/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteRelationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteRelationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/delete/AbstractDeleteState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionRelationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionRelationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetCollectionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetRelationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetRelationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/get/AbstractGetState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostRelationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostRelationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/post/AbstractPostState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutRelationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutRelationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/server/api/states/put/AbstractPutState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetSingleStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentInMemoryStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/StudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/StudyTrip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/LinkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/LinkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +59,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/unit-13-filtering-of-resources",
+    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/unit-10-associations-between-resources",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -118,11 +69,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\exam02\client" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\sutton\utils" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\sutton\server\database" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\sutton\server" />
       <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\main\java\de\fhws\fiw\fds\exam02" />
-      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luca\IdeaProjects\fdsexam02studentk50806\src\test\java\de\fhws\fiw\fds\sutton" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="de.fhws.fiw.fds.sutton" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="de.fhws.fiw.fds.sutton.utils" />
@@ -132,6 +89,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.de.fhws.fiw.fds.exam02.server.Start">
+    <configuration name="MyClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.fhws.fiw.fds.sutton.client.MyClientTest" />
+      <module name="examtemplate2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.fhws.fiw.fds.sutton.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="de.fhws.fiw.fds.exam02.server.Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.fhws.fiw.fds.exam02.server.Start" />
       <module name="examtemplate2" />
@@ -161,6 +131,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.de.fhws.fiw.fds.exam02.server.Start" />
+        <item itemvalue="Application.MyClientTest" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +172,10 @@
       <workItem from="1654941809035" duration="3597000" />
       <workItem from="1655125248533" duration="53000" />
       <workItem from="1655127326673" duration="3975000" />
-      <workItem from="1655200720505" duration="3280000" />
+      <workItem from="1655200720505" duration="3461000" />
+      <workItem from="1655217737005" duration="3778000" />
+      <workItem from="1655287843208" duration="10380000" />
+      <workItem from="1655372002927" duration="10655000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1654160241530</created>
@@ -266,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654948158057</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="sorting">
+      <created>1655204437176</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655204437176</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +273,7 @@
     <MESSAGE value="naming changes" />
     <MESSAGE value="changed project structure" />
     <MESSAGE value="bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
+    <MESSAGE value="sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorting" />
   </component>
 </project>

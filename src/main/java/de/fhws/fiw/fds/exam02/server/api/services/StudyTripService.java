@@ -41,7 +41,6 @@ public class StudyTripService extends AbstractService
 
 		)
 	{
-		System.out.println("Here 4");
 
 		return new GetAllStudyTrips.Builder( )
 			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, country )
@@ -124,11 +123,13 @@ public class StudyTripService extends AbstractService
 	public Response getStudentsOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
 										   @DefaultValue( "" ) @QueryParam( "firstName" ) final String firstName,
 										   @DefaultValue( "" ) @QueryParam( "lastName" ) final String lastName,
-										   @DefaultValue( "false" ) @QueryParam( "showAll" ) final boolean showAll )
+										   @DefaultValue( "false" ) @QueryParam( "showAll" ) final boolean showAll,
+										   @DefaultValue( "1" ) @QueryParam( PagingBehaviorUsingPage.QUERY_PARAM_PAGE ) final int pageNumber)
 	{
 		return new GetAllStudentsOfStudyTrip.Builder( )
 			.setParentId( studyTripId )
-			.setQuery( new GetAllStudentsOfStudyTrip.FilterStudentsByName( studyTripId, showAll, firstName, lastName ) )
+			.setQuery( new GetAllStudentsOfStudyTrip.FilterStudentsByName( studyTripId, showAll, firstName, lastName )
+					.setPagingBehavior( new PagingBehaviorUsingPage( pageNumber ) ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
 			.setHttpServletRequest( this.httpServletRequest )
@@ -140,7 +141,7 @@ public class StudyTripService extends AbstractService
 	@GET
 	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
 	@Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
-	public Response getStudentByIdOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
+	public Response getStudentOfStudyTripByID(@PathParam( "studyTripId" ) final long studyTripId,
 											  @PathParam( "studentId" ) final long studentId )
 	{
 		return new GetSingleStudentOfStudyTrip.Builder( )
@@ -156,7 +157,7 @@ public class StudyTripService extends AbstractService
 
 	@POST
 	@Path( "{studyTripId: \\d+}/students" )
-	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
+	@Consumes( { MediaType.APPLICATION_JSON} )
 	public Response createNewStudentOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId, final Student student )
 	{
 		return new PostNewStudentOfStudyTrip.Builder( )
@@ -171,7 +172,7 @@ public class StudyTripService extends AbstractService
 	}
 
 	@PUT
-	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )
+	@Path( "{studyTripId: \\d+}/students/{studentId: \\d+}" )		// TODO: BUGGED, WIESO???
 	@Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
 	public Response updateNewStudentOfStudyTrip(@PathParam( "studyTripId" ) final long studyTripId,
 												@PathParam( "studentId" ) final long studentId, final Student student )
