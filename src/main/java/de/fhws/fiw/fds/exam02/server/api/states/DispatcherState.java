@@ -32,7 +32,6 @@ public class DispatcherState extends AbstractGetDispatcherState
 
 	@Override protected void defineTransitionLinks( )
 	{
-		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.CREATE_STUDYTRIP, MediaType.APPLICATION_JSON );
 		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.GET_ALL_STUDYTRIPS, MediaType.APPLICATION_JSON );
 
 

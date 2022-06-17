@@ -12,7 +12,9 @@ import java.time.LocalDate;
 public class StudyTrip extends AbstractModel implements Serializable, Cloneable {
     long id;
     String name;
+    @JsonConverter(JsonDateTimeConverter.class)
     LocalDate firstDate;
+    @JsonConverter(JsonDateTimeConverter.class)
     LocalDate lastDate;
     String partnerUni;
     String city;

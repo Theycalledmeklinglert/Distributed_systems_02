@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="sorting">
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/TestYourApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/BasicAuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/GenericWebClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/MyClientTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/StudyTripClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiResponsePrevVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/StudyTrip.java" afterDir="false" />
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="First Client Implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetSingleStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/students/GetSingleStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudentInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/DispatcherState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/DispatcherState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetAllStudyTrips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetAllStudyTrips.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/StudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/StudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/LinkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/LinkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/unit-10-associations-between-resources",
+    "last_opened_file_path": "C:/Users/Luca/IdeaProjects/fdsexam02studentk50806",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -175,7 +162,8 @@
       <workItem from="1655200720505" duration="3461000" />
       <workItem from="1655217737005" duration="3778000" />
       <workItem from="1655287843208" duration="10380000" />
-      <workItem from="1655372002927" duration="10655000" />
+      <workItem from="1655372002927" duration="17993000" />
+      <workItem from="1655485947378" duration="1693000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1654160241530</created>
@@ -247,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655204437176</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="First Client Implementation">
+      <created>1655396334427</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655396334427</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +269,7 @@
     <MESSAGE value="changed project structure" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="sorting" />
-    <option name="LAST_COMMIT_MESSAGE" value="sorting" />
+    <MESSAGE value="First Client Implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Client Implementation" />
   </component>
 </project>

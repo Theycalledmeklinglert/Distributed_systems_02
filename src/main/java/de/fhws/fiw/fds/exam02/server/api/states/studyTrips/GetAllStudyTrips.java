@@ -33,7 +33,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 {
@@ -56,6 +55,7 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 	@Override protected void defineTransitionLinks( )
 	{
 		addLink( StudyTripUri.REL_PATH, StudyTripRelTypes.CREATE_STUDYTRIP, getAcceptRequestHeader( ) );
+
 	}
 
 	public static class AllPersons extends AbstractQuery<StudyTrip>
@@ -81,8 +81,16 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 		public ByNameAndStartAndEndDateAndCityAndCountry(String name, String firstDate, String lastDate, String city, String country) {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			this.name = name.toLowerCase();
-			if(!StringUtils.isEmpty(firstDate)) this.firstDate = LocalDate.parse(firstDate, formatter);
-			if(!StringUtils.isEmpty(lastDate)) this.lastDate = LocalDate.parse(lastDate, formatter);
+			if (!StringUtils.isEmpty(firstDate))
+			{
+				this.firstDate = LocalDate.parse(firstDate);
+			}
+			else this.firstDate = LocalDate.parse("0000-01-01");;
+			if(!StringUtils.isEmpty(lastDate))
+			{
+				this.lastDate = LocalDate.parse(lastDate);
+			}
+			else this.lastDate = LocalDate.parse("9999-12-31");
 			this.city = city.toLowerCase();
 			this.country = country.toLowerCase();
 		}
@@ -100,7 +108,7 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 
 		private Predicate<StudyTrip> byNameAndStartAndEndDateAndCityAndCountry()
 		{
-			return t -> matchName(t) && matchStartAndEndDate(t) && matchCity(t) && matchCountry(t);
+			return t -> matchName(t) && matchCity(t) && matchCountry(t) && matchDates(t); // &&matchStartDate(t)
 		}
 
 		private boolean matchName( final StudyTrip trip )
@@ -108,20 +116,18 @@ public class GetAllStudyTrips extends AbstractGetCollectionState<StudyTrip>
 			return StringUtils.isEmpty( name ) || trip.getName( ).toLowerCase().contains( name );
 		}
 
-		private boolean matchStartAndEndDate( final StudyTrip trip )
+		private boolean matchDates(final StudyTrip trip )
 		{
-			return matchStartDate(trip) || matchEndDate(trip);
+			if(firstDate.isEqual(trip.getFirstDate()) || lastDate.isEqual(trip.getLastDate()) || firstDate.isEqual (trip.getLastDate()) || lastDate.isEqual(trip.getFirstDate()))
+			{
+				return true;
+			}
+			else
+			{
+				return (lastDate.isAfter(trip.getLastDate()) && firstDate.isBefore(trip.getFirstDate())) || (lastDate.isAfter(trip.getFirstDate()) && lastDate.isBefore(trip.getLastDate())) || (firstDate.isAfter(trip.getFirstDate()) && firstDate.isBefore(trip.getLastDate()));
+			}
 		}
 
-		private boolean matchStartDate( final StudyTrip trip )
-		{
-			return firstDate == null || trip.getFirstDate().isBefore(firstDate) || trip.getFirstDate().isEqual(firstDate);
-		}
-
-		private boolean matchEndDate( final StudyTrip trip )
-		{
-			return lastDate == null || trip.getLastDate().isAfter(lastDate) || trip.getLastDate().isEqual(lastDate);
-		}
 
 		private boolean matchCity( final StudyTrip trip )
 		{

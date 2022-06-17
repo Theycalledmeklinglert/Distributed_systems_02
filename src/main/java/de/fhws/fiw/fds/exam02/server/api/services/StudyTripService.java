@@ -33,17 +33,16 @@ public class StudyTripService extends AbstractService
 	@Produces( {MediaType.APPLICATION_JSON} )
 	public Response getAllStudyTrips(
 		@DefaultValue( "" ) @QueryParam( "name" ) final String name,
-		@DefaultValue( "" ) @QueryParam( "firstDate" ) final String startDate,
-		@DefaultValue( "" ) @QueryParam( "lastDate" ) final String endDate,
+		@DefaultValue( "" ) @QueryParam( "firstDate" )  String firstDate,
+		@DefaultValue( "" ) @QueryParam( "lastDate" )  String lastDate,
 		@DefaultValue( "" ) @QueryParam( "city" ) final String city,
 		@DefaultValue( "" ) @QueryParam( "country" ) final String country,
 		@DefaultValue( "1" ) @QueryParam( PagingBehaviorUsingPage.QUERY_PARAM_PAGE ) final int pageNumber
 
 		)
 	{
-
 		return new GetAllStudyTrips.Builder( )
-			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, startDate, endDate, city, country )
+			.setQuery( new GetAllStudyTrips.ByNameAndStartAndEndDateAndCityAndCountry( name, firstDate, lastDate, city, country )
 					.setPagingBehavior( new PagingBehaviorUsingPage( pageNumber ) ) )
 			.setUriInfo( this.uriInfo )
 			.setRequest( this.request )
