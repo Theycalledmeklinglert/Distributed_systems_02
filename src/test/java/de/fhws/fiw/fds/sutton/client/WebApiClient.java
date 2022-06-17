@@ -120,7 +120,7 @@ public class WebApiClient {
     public WebApiResponse getSingleStudentOfStudyTripByID(final long studyTripID, final long studentID ) throws IOException
     {
 
-        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/" + studentID;
+        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/students" + "/" + studentID;
         lastResponse = client.sendGetSingleRequest(theUrl, Student.class);
         // TODO: MUSS UEBERALL AM ENDE STEHEN
 
