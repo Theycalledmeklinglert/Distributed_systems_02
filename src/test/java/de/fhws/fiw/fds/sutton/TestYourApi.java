@@ -130,6 +130,88 @@ public class TestYourApi
 			assertEquals( 1, students.size( ) );
 		}
 
+		@Test
+		public void testExistenceOfHyperLinksInGetAllStudyTrip( ) throws IOException
+		{
+			final WebApiClient client = new WebApiClient( );
+			client.callDispatcher();
 
-}
+			Map<Response, ArrayList<StudyTrip>> getAllResponse = client.getStudyTripsByAttributes("", "", "", "", "", 0);
+			Response response = getAllResponse.keySet().stream().findFirst().get();
+			ArrayList<StudyTrip> studyTrip = getAllResponse.get(response);
+
+			assertEquals( client.lastResponseHyperLinks.get("createStudyTrip"), "http://localhost:8080/exam02/api/studyTrips" );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/studyTrips?page=1" );
+
+			client.callDispatcher();
+			getAllResponse = client.getStudyTripsByAttributes("", "", "", "", "", 2);
+			assertEquals( client.lastResponseHyperLinks.get("createStudyTrip"), "http://localhost:8080/exam02/api/studyTrips" );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/studyTrips?page=2" );
+
+		}
+
+		@Test
+		public void testExistenceOfHyperLinksInGetAllStudents( ) throws IOException
+		{
+			final WebApiClient client = new WebApiClient( );
+			client.callDispatcher();
+
+			Map<Response, ArrayList<Student>> getAllResponse = client.getAllStudents(0);
+			Response response = getAllResponse.keySet().stream().findFirst().get();
+			ArrayList<Student> students = getAllResponse.get(response);
+
+			assertEquals( client.lastResponseHyperLinks.get("createStudyTrip"), "http://localhost:8080/exam02/api/students" );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/students?page=1" );
+
+			client.callDispatcher();
+			getAllResponse = client.getAllStudents(2);
+			assertEquals( client.lastResponseHyperLinks.get("createStudyTrip"), "http://localhost:8080/exam02/api/students" );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/students?page=2" );
+		}
+
+		@Test
+		public void testExistenceOfHyperLinksInGetSingleStudyTrip( ) throws IOException
+		{
+			final WebApiClient client = new WebApiClient( );
+			client.callDispatcher();
+			Map<Response, ArrayList<StudyTrip>> getAllResponse = client.getStudyTripsByAttributes("", "", "", "", "", 0);
+
+			assertEquals( client.lastResponseHyperLinks.get("createStudyTrip"), "http://localhost:8080/exam02/api/studyTrips" );
+
+			client.postStudyTrip(new StudyTrip("TestSingleGetTrip", LocalDate.parse("2000-01-01"), LocalDate.parse("2000-02-01"), "FHWS", "Wuerzburg", "Germany"));
+			String locationLink = client.lastResponseHyperLinks.get("Location");
+
+			long id = Long.parseLong(locationLink.substring(locationLink.lastIndexOf("/")+1));
+			Map<Response, StudyTrip> getSingleResponse = client.getSingleStudyTripByID(id);
+
+			assertEquals( client.lastResponseHyperLinks.get("getAllStudyTrips"), "http://localhost:8080/exam02/api/studyTrips" );
+			assertEquals( client.lastResponseHyperLinks.get("updateStudyTrip"), "http://localhost:8080/exam02/api/studyTrips/" + id );
+			assertEquals( client.lastResponseHyperLinks.get("deleteStudyTrip"), "http://localhost:8080/exam02/api/studyTrips/" + id );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/studyTrips/" + id );
+
+		}
+
+		@Test
+		public void testExistenceOfHyperLinksInGetSingleStudent( ) throws IOException
+		{
+			final WebApiClient client = new WebApiClient( );
+			client.callDispatcher();
+			Map<Response, ArrayList<Student >> getAllResponse = client.getAllStudents(0);
+
+			assertEquals( client.lastResponseHyperLinks.get("createStudent"), "http://localhost:8080/exam02/api/students" );
+
+			client.postStudent(new Student(2,"Test", "Student", "BIN", 4, 51200078, "test@gmail.com"));
+			String locationLink = client.lastResponseHyperLinks.get("Location");
+
+			long id = Long.parseLong(locationLink.substring(locationLink.lastIndexOf("/")+1));
+			Map<Response, Student> getSingleResponse = client.getSingleStudentByID(id);
+
+			assertEquals( client.lastResponseHyperLinks.get("getAllStudents"), "http://localhost:8080/exam02/api/students" );
+			assertEquals( client.lastResponseHyperLinks.get("updateStudent"), "http://localhost:8080/exam02/api/students/" + id );
+			assertEquals( client.lastResponseHyperLinks.get("deleteStudent"), "http://localhost:8080/exam02/api/students/" + id );
+			assertEquals( client.lastResponseHyperLinks.get("self"), "http://localhost:8080/exam02/api/students/" + id );
+
+		}
+
+	}
 
