@@ -62,7 +62,18 @@ public class Student extends AbstractModel {
     public Student() {
     }
 
+
+
     public Student(long id, String firstname, String lastname, String course, int semester, long immatricNum, String email) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.course = course;
+        this.semester = semester;
+        this.immatricNum = immatricNum;
+        this.email = email;
+    }
+
+    public Student(String firstname, String lastname, String course, int semester, long immatricNum, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.course = course;
@@ -120,6 +131,21 @@ public class Student extends AbstractModel {
         this.email = email;
     }
 
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", course='" + course + '\'' +
+                ", semester=" + semester +
+                ", immatricNum=" + immatricNum +
+                ", email='" + email + '\'' +
+                ", selfLinkPrimary=" + selfLinkPrimary +
+                ", selfLinkSecondary=" + selfLinkSecondary +
+                '}';
+    }
 }
 
 

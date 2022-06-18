@@ -33,13 +33,12 @@ public class StudyTripInMemoryStorage extends AbstractInMemoryStorage<StudyTrip>
 	public StudyTripInMemoryStorage( )
 	{
 		super( );
-		populateData( );
+	//	populateData( );
 	}
 
 	  private void populateData( )
 	{
 		long id = 0;
-		create( new StudyTrip(id, "Test Trip", LocalDate.of(2000, 01, 01), LocalDate.of(2001, 01, 01), "FHWS", "Wuerzburg", "Germany"));
 	}
 
 	 @Override

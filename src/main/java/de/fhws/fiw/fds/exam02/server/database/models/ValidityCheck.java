@@ -2,6 +2,8 @@ package de.fhws.fiw.fds.exam02.server.database.models;
 
 import de.fhws.fiw.fds.exam02.server.database.DaoFactory;
 
+import java.util.Set;
+
 public class ValidityCheck {
 
     public static boolean checkStudyTrip(StudyTrip studyTrip)
@@ -24,18 +26,25 @@ public class ValidityCheck {
     public static boolean checkStudent(Student student) {
         if(isMissingAttributes(student))
         {
+            System.out.println("missing attr");
             return false;
         }
         if(isLetter(student.getFirstname()) && isLetter(student.getLastname()) && isLetter(student.getCourse()) && isValidImmatricNum(student.getImmatricNum()) && isValidEMail(student.getEmail()))
         {
+            System.out.println("fail1");
             if(student.getSemester() > 0 && student.getSemester() < 8)
                     {
+                        System.out.println("fail2");
+
                         if(isUniqueImmatricNum(student.getImmatricNum()))
                         {
+                            System.out.println("OK: " + student.getImmatricNum());
                             return true;
                         }
                     }
                 }
+        System.out.println("NOT OK: " + student.getImmatricNum());
+        System.out.println(student.toString());
         return false;
     }
 
@@ -45,7 +54,8 @@ public class ValidityCheck {
     }
     private static boolean isMissingAttributes(Student student)
     {
-        return student.getFirstname() == null || student.getLastname() == null || student.getCourse() == null || student.getSemester() == 0 || student.getImmatricNum() == 0 || student.getEmail() == null;
+       // return student.getFirstname() == null || student.getLastname() == null || student.getCourse() == null || student.getImmatricNum() == 0 || student.getEmail() == null;
+        return false;
     }
 
     private static boolean isValidImmatricNum(Long immatricNum)

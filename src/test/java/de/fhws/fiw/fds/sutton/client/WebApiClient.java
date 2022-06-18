@@ -6,248 +6,439 @@ import de.fhws.fiw.fds.sutton.models.Student;
 import de.fhws.fiw.fds.sutton.models.StudyTrip;
 import okhttp3.*;
 
+import javax.ws.rs.WebApplicationException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
+
+import static de.fhws.fiw.fds.sutton.client.LinkToMapParser.parseLinks;
 
 
 public class WebApiClient {
     private final Genson genson;
-    private final GenericWebClient client;
+    private final OkHttpClient client;
     private static final MediaType MEDIA_TYPE_JSON = MediaType.parse( "application/json" );
     private static final String URL = "http://localhost:8080/exam02/api";
 
-    private static WebApiResponse lastResponse;
+    public static Map<String, String> lastResponseHyperLinks = new HashMap<>();
 
     public WebApiClient()
     {
-        this.client = new GenericWebClient<StudyTrip>("","");
+        this.client = new OkHttpClient();
         this.genson = new Genson();
     }
 
-    public WebApiResponse callDispatcher(  ) throws IOException
+    public WebApiClient( final String userName, final String password )
     {
-        lastResponse = client.sendDispatcherRequest(URL);
-        return lastResponse;
+        this.client = new OkHttpClient.Builder( )
+                .addInterceptor( new BasicAuthInterceptor( userName, password ) )
+                .build( );
+        this.genson = new Genson( );
     }
 
 
-    public WebApiResponse getStudyTripsByAttributes(final String name, final String firstDate, final String lastDate, final String city, final String country, final int pageNumber ) throws IOException
+    public Response callDispatcher(  ) throws IOException
     {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"getAllStudyTrips\"")) // TODO: Check if this works
+        final Request request = new Request.Builder( )
+                .url( URL )
+                .get( )
+                .build( );
+
+        final Response response = this.client.newCall( request ).execute( );
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+        return response;
+    }
+
+    public Map<Response, ArrayList<StudyTrip>> getStudyTripsByAttributes(final String name, final String firstDate, final String lastDate, final String city, final String country, final int pageNumber ) throws IOException
+    {
+        final String theUrl = URL + "/studyTrips" + "?name=" + name + "&firstDate="+ firstDate + "&lastDate=" + lastDate + "&city=" + city + "&country=" + country + "&page=" + pageNumber;
+
+        if(lastResponseHyperLinks.get("getAllStudyTrips") == null && !lastResponseHyperLinks.values().contains(theUrl))
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
-        final String theUrl = URL + "/studyTrips" + "?name=" + name + "&firstDate="+ firstDate + "&lastDate=" + lastDate + "&city=" + city + "&country=" + country + "&page=" + pageNumber;
-        lastResponse = client.sendGetCollectionRequest(theUrl, new GenericType<List<StudyTrip>>() {
-        });
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
+        Response response = sendGetRequest(theUrl);
 
-        return lastResponse;
+        if(response.code() != 200)
+        {
+            throw new WebApplicationException(response.code());
+        }
+        ArrayList<StudyTrip> trips = genson.deserialize(response.body().string(), new GenericType<ArrayList<StudyTrip>>() {});
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, ArrayList<StudyTrip>> res = new HashMap<>();
+        res.put(response, trips);
+        return res;
     }
 
-    public WebApiResponse getSingleStudyTripByID(final long id ) throws IOException
+    public Map<Response, StudyTrip> getSingleStudyTripByID(final long id ) throws IOException
     {
         final String theUrl = URL + "/studyTrips" + "/" + id;
-        lastResponse = client.sendGetSingleRequest(theUrl, StudyTrip.class);
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
 
-        return lastResponse;
+        Response response = sendGetRequest(theUrl);
+
+        if(response.code() != 200)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, StudyTrip> res = new HashMap<>();
+        res.put(response, genson.deserialize(response.body().string(), StudyTrip.class));
+        return res;
     }
 
-
-
-    public WebApiResponse postStudyTrip(StudyTrip studyTrip) throws IOException
+    public Map<Response, StudyTrip> postStudyTrip(StudyTrip studyTrip) throws IOException
         {
-            if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"createStudyTrip\"")) // TODO: Check if this works
+            if(lastResponseHyperLinks.get("createStudyTrip") == null)
             {
-                System.out.println("Failed");
-                return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+                throw new WebApplicationException("Missing corresponding Hyperlink of last request");
             }
 
             String theUrl = URL + "/studyTrips";
-            lastResponse = client.sendPostRequest(theUrl, studyTrip);
+            Response response = sendPostRequest(theUrl, genson.serialize(studyTrip));
 
-            // TODO: MUSS UEBERALL AM ENDE STEHEN
-            return lastResponse;
+            if(response.code() != 201)
+            {
+                throw new WebApplicationException(response.code());
+            }
+
+            lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+            HashMap<Response, StudyTrip> res = new HashMap<>();
+            res.put(response, null);
+            return res;
         }
 
-    public WebApiResponse updateStudyTrip(final long id, StudyTrip studyTrip) throws IOException {
 
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"updateStudyTrip\"")) // TODO: Check if this works
+    public Map<Response, StudyTrip> updateStudyTrip(final long id, StudyTrip studyTrip) throws IOException {
+
+        if(lastResponseHyperLinks.get("updateStudyTrip") == null)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
         final String theUrl = URL + "/studyTrips" + "/" + id;
-        lastResponse = client.sendPutRequest(theUrl, studyTrip);
-        return lastResponse;
-    }
+        Response response = sendPutRequest(theUrl, genson.serialize(studyTrip));
 
-
-    public WebApiResponse deleteStudyTripById(final long id) throws IOException {
-
-            if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"deleteStudyTrip\"")) // TODO: Check if this works
-            {
-                return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
-            }
-
-            final String theUrl = URL + "/studyTrips" + "/" + id;
-            lastResponse = client.sendDeleteRequest(theUrl);
-
-            return lastResponse;
-
-    }
-
-    public WebApiResponse getStudentsOfStudyTrip(final StudyTrip studyTrip, final int pageNumber ) throws IOException
-    {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"getAllStudentsOfStudyTrip\"")) // TODO: Check if this works
+        if(response.code() != 204)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException(response.code());
         }
 
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, StudyTrip> res = new HashMap<>();
+        res.put(response, null);
+        return res;
+    }
+
+
+    public Map<Response, StudyTrip> deleteStudyTripById(final long id) throws IOException {
+
+        if(lastResponseHyperLinks.get("deleteStudyTrip") == null)
+        {
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
+        }
+        final String theUrl = URL + "/studyTrips" + "/" + id;
+        Response response = sendDeleteRequest(theUrl);
+
+        if(response.code() != 204)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, StudyTrip> res = new HashMap<>();
+        res.put(response, null);
+        return res;
+    }
+
+
+    public Map<Response, ArrayList<Student>> getStudentsOfStudyTrip(final StudyTrip studyTrip, final int pageNumber ) throws IOException
+    {
         final String theUrl = studyTrip.getStudents().toString() + "?page=" + pageNumber;
-        lastResponse = client.sendGetCollectionRequest(theUrl, new GenericType<List<Student>>() {
-        });
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
 
-        return lastResponse;
+        if(lastResponseHyperLinks.get("getAllStudentsOfStudyTrip") == null && lastResponseHyperLinks.get("self") != theUrl && !lastResponseHyperLinks.values().contains(theUrl))
+        {
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
+        }
+
+        Response response = sendGetRequest(theUrl);
+
+        if(response.code() != 200)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, ArrayList<Student>> res = new HashMap<>();
+        res.put(response, genson.deserialize(response.body().string(), new GenericType<ArrayList<Student>>() {}));
+        return res;
     }
 
 
-    public WebApiResponse getSingleStudentOfStudyTripByID(final long studyTripID, final long studentID ) throws IOException
+    public Map<Response, Student> getSingleStudentOfStudyTripByID(final long studyTripID, final long studentID ) throws IOException
     {
-
         final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/students" + "/" + studentID;
-        lastResponse = client.sendGetSingleRequest(theUrl, Student.class);
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
 
-        return lastResponse;
-    }
+        Response response = sendGetRequest(theUrl);
 
-    public WebApiResponse postStudentToStudyTripByID(final long studyTripID, final long studentID) throws IOException {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"createStudentOfStudyTrip\""))
+        if(response.code() != 200)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException(response.code());
         }
 
-        ArrayList<Student> list = (ArrayList<Student>) getSingleStudentByID(studentID).getResponseData().stream().collect(Collectors.toList());
-        Student student = list.get(0);
-        final String theUrl = URL + "/studyTrips" + "/" + studyTripID;
-        lastResponse = client.sendPostRequest(theUrl, student);
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
 
-        return lastResponse;
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, genson.deserialize(response.body().string(), Student.class));
+        return res;
     }
 
-
-    public WebApiResponse postStudentToStudyTrip(final long studyTripID, final Student student) throws IOException {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"createStudentOfStudyTrip\""))
+    public Map<Response, Student> postStudentToStudyTrip(final long studyTripID, final Student student) throws IOException {
+        if(lastResponseHyperLinks.get("createStudentOfStudyTrip") == null)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
-        final String theUrl = URL + "/studyTrips" + "/" + studyTripID;
-        lastResponse = client.sendPostRequest(theUrl, student);
+        Map<Response, Student> map = (HashMap<Response, Student>) getSingleStudentByID(student.getId());
+        Optional<Student> studentToLink = map.values().stream().findFirst();
 
-        return lastResponse;
-
-    }
-
-    public WebApiResponse updateStudentOfStudyTrip(final int studyTripID, final Student student) throws IOException {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"updateStudentsOfStudyTrip\""))
+        if(!studentToLink.isPresent())
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            map = postStudent(student);
+            studentToLink = Optional.of(map.values().stream().findFirst()).get();
         }
 
-        final String theUrl = URL + "/studyTrips" + "/" + studyTripID;
-        lastResponse = client.sendPutRequest(theUrl, student);
+        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/students";
 
-        return lastResponse;
+        Response response = sendPostRequest(theUrl, genson.serialize(studentToLink));
 
-    }
-
-    public WebApiResponse deleteStudentOfStudyTripById(final long studyTripID, final long studentID) throws IOException {
-
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"unlinkStudyTripToStudent\"")) // TODO: Check if this works
+        if(response.code() != 201)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException(response.code());
         }
 
-        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/" + studentID;
-        lastResponse = client.sendDeleteRequest(theUrl);
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
 
-        return lastResponse;
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
+    }
+
+    public Map<Response, Student> updateStudentOfStudyTrip(final int studyTripID, final Student student) throws IOException {
+        if(lastResponseHyperLinks.get("updateStudentsOfStudyTrip") == null)
+        {
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
+        }
+
+        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/students" + "/" + student.getId();
+        Response response = sendPutRequest(theUrl,genson.serialize(student));
+
+        if(response.code() != 204)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
 
     }
 
+    public Map<Response, Student> deleteStudentOfStudyTripById(final long studyTripID, final long studentID) throws IOException {
+
+        if(lastResponseHyperLinks.get("unlinkStudyTripToStudent") == null)
+        {
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
+        }
+
+        final String theUrl = URL + "/studyTrips" + "/" + studyTripID + "/students/" + studentID;
+        Response response = sendDeleteRequest(theUrl);
+
+        if(response.code() != 204)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
+        }
 
 
-    public WebApiResponse getAllStudents(final int pageNumber ) throws IOException
+    public Map<Response, ArrayList<Student>> getAllStudents(final int pageNumber ) throws IOException
     {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"getAllStudents\"")) // TODO: Check if this works
+        final String theUrl = URL + "/students" + "?page=" + pageNumber;
+
+        if(lastResponseHyperLinks.get("getAllStudents") == null && lastResponseHyperLinks.get("self") != theUrl && !lastResponseHyperLinks.values().contains(theUrl))
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
-        final String theUrl = URL + "/students" + "?page=" + pageNumber;
-        lastResponse = client.sendGetCollectionRequest(theUrl, new GenericType<List<Student>>() {
-        });
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
+        Response response = sendGetRequest(theUrl);
 
-        return lastResponse;
+        if(response.code() != 200)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, ArrayList<Student>> res = new HashMap<>();
+        res.put(response, genson.deserialize(response.body().string(), new GenericType<ArrayList<Student>>() {}));
+        return res;
     }
 
-    public WebApiResponse getSingleStudentByID(final long id ) throws IOException
+    public Map<Response, Student> getSingleStudentByID(final long id ) throws IOException
     {
         final String theUrl = URL + "/students" + "/" + id;
-        lastResponse = client.sendGetSingleRequest(theUrl, Student.class);
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
 
-        return lastResponse;
+        Response response = sendGetRequest(theUrl);
+
+        if(response.code() != 200)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        Student student = genson.deserialize(response.body().string(), Student.class);
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, genson.deserialize(response.body().string(), Student.class));
+        return res;
     }
 
-    public WebApiResponse postStudent(final Student student) throws IOException
+
+    public Map<Response, Student> postStudent(final Student student) throws IOException
     {
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"createStudent\"")) // TODO: Check if this works
+        if(lastResponseHyperLinks.get("createStudent") == null)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
         String theUrl = URL + "/students";
-        lastResponse = client.sendPostRequest(theUrl, student);
+        Response response = sendPostRequest(theUrl, genson.serialize(student));
+        System.out.println(genson.serialize(student));
 
-        // TODO: MUSS UEBERALL AM ENDE STEHEN
-        return lastResponse;
-    }
-
-    public WebApiResponse updateStudent(final long id, Student student) throws IOException {
-
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"updateStudent\"")) // TODO: Check if this works
+        if(response.code() != 201)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
+        }
+
+    public Map<Response, Student> updateStudent(final long id, Student student) throws IOException {
+
+        if(lastResponseHyperLinks.get("updateStudent") == null)
+        {
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
         final String theUrl = URL + "/students" + "/" + id;
-        lastResponse = client.sendPutRequest(theUrl, student);
-        return lastResponse;
+
+        Response response = sendPutRequest(theUrl, genson.serialize(student));
+
+        if(response.code() != 204)
+        {
+            throw new WebApplicationException(response.code());
+        }
+
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
+
+
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
     }
 
 
-    public WebApiResponse deleteStudentByID(final long id) throws IOException {
+    public Map<Response, Student> deleteStudentByID(final long id) throws IOException {
 
-        if(!lastResponse.getHeaders().values("Link").toString().contains("rel=\"deleteStudent\"")) // TODO: Check if this works
+        if(lastResponseHyperLinks.get("deleteStudent") == null)
         {
-            return new WebApiResponse(403); // TODO: Probably wrong status code but I don't know which one would fit better
+            throw new WebApplicationException("Missing corresponding Hyperlink of last request");
         }
 
         final String theUrl = URL + "/students" + "/" + id;
-        lastResponse = client.sendDeleteRequest(theUrl);
+        Response response = sendDeleteRequest(theUrl);
 
-        return lastResponse;
+        if(response.code() != 204)
+        {
+            throw new WebApplicationException(response.code());
+        }
+        lastResponseHyperLinks = parseLinks(response.headers("Link"));
 
+        HashMap<Response, Student> res = new HashMap<>();
+        res.put(response, null);
+        return res;
     }
+
+
+
+    private Response sendGetRequest(final String url) throws IOException
+    {
+        final Request request = new Request.Builder( )
+                .url( url )
+                .get( )
+                .build( );
+
+        final Response response = this.client.newCall( request ).execute( );
+
+        if (response.code() == 200) return response;
+        else throw new WebApplicationException();
+    }
+
+    private Response sendPostRequest(final String url, String json )
+            throws IOException
+    {
+        final RequestBody body = RequestBody.create( MEDIA_TYPE_JSON, json);
+
+        final Request request = new Request.Builder( )
+                .url( url )
+                .post( body )
+                .build( );
+
+       return this.client.newCall( request ).execute( );
+    }
+
+    public Response sendPutRequest(final String url, String json ) throws IOException
+    {
+        final RequestBody body = RequestBody.create( MEDIA_TYPE_JSON, json );
+
+        final Request request = new Request.Builder( )
+                .url( url )
+                .put( body )
+                .build( );
+
+        return this.client.newCall( request ).execute( );
+    }
+
+    public Response sendDeleteRequest(final String url ) throws IOException
+    {
+        final Request request = new Request.Builder( )
+                .url( url )
+                .delete( )
+                .build( );
+
+        return this.client.newCall( request ).execute( );
+    }
+
+
 
 
 

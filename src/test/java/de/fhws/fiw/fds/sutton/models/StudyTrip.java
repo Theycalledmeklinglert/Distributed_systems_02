@@ -38,12 +38,12 @@ public class StudyTrip extends AbstractModel implements Serializable, Cloneable 
             type = "application/json"
     )
     private Link students;
-   // private Set<Long> studentIds;
     @JsonConverter( JsonServerLinkConverter.class )
     public Link getSelfLink() {
         return selfLink;
     }
 
+    @JsonConverter( JsonServerLinkConverter.class )
     public void setSelfLink(Link selfLink) {
         this.selfLink = selfLink;
     }
@@ -53,6 +53,7 @@ public class StudyTrip extends AbstractModel implements Serializable, Cloneable 
         return students;
     }
 
+    @JsonConverter( JsonServerLinkConverter.class )
     public void setStudents(Link students) {
         this.students = students;
     }
