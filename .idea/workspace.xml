@@ -4,46 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="Bugfix">
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/LinkToMapParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/examtemplate2_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_owlike_genson_1_6.xml" beforeDir="false" />
+    <list default="true" id="136349fc-64b0-4602-8121-f4db75eaee37" name="Changes" comment="Implementations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Exam02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Exam02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/DispatcherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/DispatcherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/services/StudyTripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/DispatcherState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/DispatcherState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/DeleteSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/DeleteSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetAllStudyTrips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetAllStudyTrips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/GetSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PostNewStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PostNewStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PutSingleStudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/PutSingleStudyTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripRelTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripRelTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripUri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/api/states/studyTrips/StudyTripUri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/DatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/IDatabaseAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/IDatabaseAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/StudyTripInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/inmemory/AbstractInMemoryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/inmemory/AbstractInMemoryStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/AbstractModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/AbstractModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/EmptyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/EmptyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/ValidityCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/models/ValidityCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/AbstractResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/AbstractResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/CollectionModelResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/CollectionModelResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/NoContentResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/NoContentResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/SingleModelResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/exam02/server/database/results/SingleModelResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/Hyperlinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/Hyperlinks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/JsonServerLinkConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/fhws/fiw/fds/sutton/utils/JsonServerLinkConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/TestYourApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/TestYourApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/GenericWebClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/MyClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/MyClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/client/WebApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/StudyTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/fhws/fiw/fds/sutton/models/StudyTrip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +195,7 @@
       <workItem from="1655372002927" duration="17993000" />
       <workItem from="1655485947378" duration="11836000" />
       <workItem from="1655508611155" duration="331000" />
-      <workItem from="1655542614463" duration="26946000" />
+      <workItem from="1655542614463" duration="27052000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1654160241530</created>
@@ -325,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655488426473</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implementations">
+      <created>1655593383753</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1655593383753</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +325,7 @@
     <MESSAGE value="First Client Implementation" />
     <MESSAGE value="Fixed searchStudyTripsByDates" />
     <MESSAGE value="Bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfix" />
+    <MESSAGE value="Implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementations" />
   </component>
 </project>
